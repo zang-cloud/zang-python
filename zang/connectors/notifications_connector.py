@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.notifications_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Notifications` endpoint
-'''
+"""
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
 
@@ -13,14 +13,14 @@ from zang.domain.list.notifications import Notifications
 
 
 class NotificationsConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Notifications`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def viewNotification(self, notificationSid):
-        '''
+        """
         Shows information on some notification.
 
         :param notificationSid: Notification SID.
@@ -29,13 +29,13 @@ class NotificationsConnector(BaseConnector):
         :return: `Notification` object
         :rtype: zang.domain.notification.Notification
         :raises ZangException:
-        '''
+        """
         notification = self._executor.read(
             ('Notifications', notificationSid), Notification)
         return notification
 
     def listNotifications(self, log=None, page=None, pageSize=None,):
-        '''
+        """
         Shows information on some notification.
 
         :param log: Specifies that only notifications with the given log level
@@ -52,7 +52,7 @@ class NotificationsConnector(BaseConnector):
         :return: `Notification` object
         :rtype: zang.domain.notification.Notification
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Log': log,
             'Page': page,

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-zang.domain.enums.reject_reason
+zang.inboundxml.elements.enums.reject_reason
 ~~~~~~~~~~~~~~~~~~~
 Module containing `RejectReason` available options
 """

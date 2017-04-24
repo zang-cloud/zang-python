@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.recording
 ~~~~~~~~~~~~~~~~~~~
 `AvailablePhoneNumbers` model
-'''
+"""
 
 from zang.domain.list.base_list import BaseList
 from zang.domain.available_phone_number import AvailablePhoneNumber

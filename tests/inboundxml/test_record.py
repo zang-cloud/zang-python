@@ -1,8 +1,7 @@
 import unittest
 from zang.inboundxml.elements.record import Record
-from zang.inboundxml.elements.enums.recording_file_format \
-    import RecordingFileFormat
-from zang.inboundxml.elements.enums.call_direction import CallDirection
+from zang.domain.enums.recording_file_format import RecordingFileFormat
+from zang.inboundxml.elements.enums.record_direction import RecordDirection
 from zang.inboundxml.elements.base_node import BaseNode
 
 
@@ -22,7 +21,7 @@ class TestRecord(unittest.TestCase):
         self.assertRaises(TypeError, lambda: Record('foo', bar='foobar'))
 
     def test_with_update_attributes(self):
-        direction = CallDirection.IN
+        direction = RecordDirection.IN
         record = Record()
         record.direction = direction
         expected = '<Record direction="%s"/>' % (direction.value)

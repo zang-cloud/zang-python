@@ -16,6 +16,7 @@ from tests.inboundxml.test_gather import TestGather
 from tests.inboundxml.test_dial import TestDial
 from tests.inboundxml.test_response import TestResponse
 
+
 def suite():
     """
         Gather all the tests from this module in a test suite.
@@ -43,4 +44,4 @@ def suite():
 if __name__ == '__main__':
     runner = unittest.TextTestRunner()
     test_suite = suite()
-    runner.run (test_suite)
+    runner.run(test_suite)

@@ -18,11 +18,11 @@ class TestPing(unittest.TestCase):
         assert ping.xml == expected
 
     def test_init_with_unsupported_attributes(self):
-        '''ping has no attribute foo'''
+        """ping has no attribute foo"""
         self.assertRaises(TypeError, lambda: Ping(self.url, foo='bar'))
 
     def test_with_update_attributes(self):
-        '''test updating url and attributes'''
+        """test updating url and attributes"""
         ping = Ping(self.url)
         newUlr = 'http://bar'
         ping.url = newUlr
@@ -31,12 +31,12 @@ class TestPing(unittest.TestCase):
         assert ping.xml == expected
 
     def test_udefinded_method_with_primitive_type(self):
-        '''test calling undefined method'''
+        """test calling undefined method"""
         self.assertRaises(
             AttributeError, lambda: Ping(self.url).addElement('bar'))
 
     def test_udefinded_method_with_base_node(self):
-        '''test calling undefined method'''
+        """test calling undefined method"""
         self.assertRaises(
             AttributeError, lambda: Ping(self.url).addElement(BaseNode()))
 

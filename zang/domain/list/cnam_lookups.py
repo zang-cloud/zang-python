@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.cnam_lookups
 ~~~~~~~~~~~~~~~~~~~
 `CnamLookups` model
-'''
+"""
 
 from zang.domain.list.base_list import BaseList
 from zang.domain.cnam_lookup import CnamLookup

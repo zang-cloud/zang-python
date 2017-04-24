@@ -3,7 +3,7 @@ from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 from zang.domain.enums.product import Product
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
@@ -12,7 +12,7 @@ usagesConnector = ConnectorFactory(configuration).usagesConnector
 
 # view usage
 try:
-    usage = usagesConnector.viewUsage("{UsageSid}")
+    usage = usagesConnector.viewUsage('{UsageSid}')
     print(usage.totalCost)
 except ZangException as ze:
     print(ze)

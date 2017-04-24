@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.enums.sms_message_status
 ~~~~~~~~~~~~~~~~~~~
 Module containing `SmsMessageStatus` available options
-'''
+"""
 from enum import Enum
 
 

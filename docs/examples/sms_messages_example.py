@@ -4,7 +4,7 @@ from zang.exceptions.zang_exception import ZangException
 from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 
@@ -14,9 +14,9 @@ smsMessagesConnector = ConnectorFactory(configuration).smsMessagesConnector
 # send sms message
 try:
     smsMessage = smsMessagesConnector.sendSmsMessage(
-        to="(XXX) XXX-XXXX",
-        body="Hello from Zang!",
-        from_="(XXX) XXX-XXXX")
+        to='(XXX) XXX-XXXX',
+        body='Hello from Zang!',
+        from_='(XXX) XXX-XXXX')
     print(smsMessage)
 except ZangException as e:
     print(e)
@@ -24,7 +24,7 @@ except ZangException as e:
 
 # view sms message
 try:
-    smsMessage = smsMessagesConnector.viewSmsMessage("SmsMessageSID")
+    smsMessage = smsMessagesConnector.viewSmsMessage('SmsMessageSID')
     print(smsMessage.status)
 except ZangException as e:
     print(e)

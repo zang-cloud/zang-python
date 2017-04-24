@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.transcriptions_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Transcriptions` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -14,14 +14,14 @@ from zang.domain.list.transcriptions import Transcriptions
 
 
 class TranscriptionsConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Transcriptions`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def viewTranscription(self, transcriptionSid):
-        '''
+        """
         Shows information on some recording
 
         :param recordingSid: Transcription SID.
@@ -30,7 +30,7 @@ class TranscriptionsConnector(BaseConnector):
         :return: `Transcription` object
         :rtype: zang.domain.transcription.Transcription
         :raises ZangException:
-        '''
+        """
         transcription = self._executor.read(
             ('Transcriptions', transcriptionSid), Transcription)
         return transcription
@@ -42,7 +42,7 @@ class TranscriptionsConnector(BaseConnector):
             dateTranscribedLt=None,
             page=None,
             pageSize=None,):
-        '''
+        """
         :param status: Filter by transcriptions with a given status. Allowed
             values are "completed", "in-progress", and "failed".
         :param dateTranscribedGte: Filter by date transcribed greater or
@@ -62,7 +62,7 @@ class TranscriptionsConnector(BaseConnector):
         :return: `Transcriptions` object
         :rtype: zang.domain.list.transcriptions.Transcriptions
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Status': status,
             'DateTranscribed>': dateTranscribedGte,
@@ -83,7 +83,7 @@ class TranscriptionsConnector(BaseConnector):
             sliceStart=None,
             sliceDuration=None,
             quality=None,):
-        '''
+        """
         Transcribes some recording
 
         :param recordingSid: Recording SID.
@@ -119,7 +119,7 @@ class TranscriptionsConnector(BaseConnector):
         :return: `Transcriptions` object
         :rtype: zang.domain.list.transcriptions.Transcriptions
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'TranscribeCallback': transcribeCallback,
             'CallbackMethod': callbackMethod,
@@ -141,7 +141,7 @@ class TranscriptionsConnector(BaseConnector):
             sliceDuration=None,
             callbackMethod=None,
             quality=None,):
-        '''
+        """
         Transcribes an audio file on some URL
 
         :param audioUrl: (option) URL where the audio to be transcribed
@@ -172,7 +172,7 @@ class TranscriptionsConnector(BaseConnector):
         :return: `Transcriptions` object
         :rtype: zang.domain.list.transcriptions.Transcriptions
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'AudioUrl': audioUrl,
             'TranscribeCallback': transcribeCallback,

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.notifications
 ~~~~~~~~~~~~~~~~~~~
 `Notifications` model
-'''
+"""
 from zang.domain.list.base_list import BaseList
 from zang.domain.notification import Notification
 

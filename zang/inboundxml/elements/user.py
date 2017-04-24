@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.inboundxml.elements.user
 ~~~~~~~~~~~~~~~~~~~
 Module containing `User` inbound xml element
-'''
+"""
 
 from zang.inboundxml.elements.base_node import BaseNode
 

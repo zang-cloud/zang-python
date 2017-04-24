@@ -19,12 +19,12 @@ class TestTranscriptions(unittest.TestCase):
         self.connector = connectorFactory.transcriptionsConnector
 
     def test_view(self):
-        TestUtil.start("TranscriptionsTest", "viewTranscription")
-        obj = self.connector.viewTranscription("TestTranscriptionSid")
+        TestUtil.start('TranscriptionsTest', 'viewTranscription')
+        obj = self.connector.viewTranscription('TestTranscriptionSid')
         self.checkTranscription(obj)
 
     def test_list(self):
-        TestUtil.start("TranscriptionsTest", "listTranscriptions")
+        TestUtil.start('TranscriptionsTest', 'listTranscriptions')
         obj = self.connector.listTranscriptions(
             status=TranscriptionStatus.COMPLETED,
             dateTranscribedGte=date(2016, 12, 12),
@@ -33,17 +33,17 @@ class TestTranscriptions(unittest.TestCase):
             pageSize=33)
         assert len(obj.elements) == 2
         assert (obj.elements[0].transcriptionText ==
-                "Hello from St. Cloud. We hope you like.")
+                'Hello from St. Cloud. We hope you like.')
 
     def test_transcribeRecording(self):
-        TestUtil.start("TranscriptionsTest", "transcribeRecording")
+        TestUtil.start('TranscriptionsTest', 'transcribeRecording')
         obj = self.connector.transcribeRecording(
-            "TestRecordingSid", "TranscribeCallback", HttpMethod.GET, 0, 33,
+            'TestRecordingSid', 'TranscribeCallback', HttpMethod.GET, 0, 33,
             TranscribeQuality.HYBRID)
         self.checkTranscription(obj)
 
     def test_transcribeAudioUrl(self):
-        TestUtil.start("TranscriptionsTest", "transcribeAudioUrl")
+        TestUtil.start('TranscriptionsTest', 'transcribeAudioUrl')
         obj = self.connector.transcribeAudioUrl(
             audioUrl='AudioUrl',
             transcribeCallback='TranscribeCallback',
@@ -54,5 +54,5 @@ class TestTranscriptions(unittest.TestCase):
         self.checkTranscription(obj)
 
     def checkTranscription(self, transcription):
-        assert ("Hello from St. Cloud. We hope you like this." ==
+        assert ('Hello from St. Cloud. We hope you like this.' ==
                 transcription.transcriptionText)

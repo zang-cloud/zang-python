@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.incoming_phone_numbers_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Incoming Phone Numbers` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -14,14 +14,14 @@ from zang.domain.list.incoming_phone_numbers import IncomingPhoneNumbers
 
 
 class IncomingPhoneNumbersConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Incoming Phone Numbers`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def viewIncomingPhoneNumber(self, incomingNumberSid):
-        '''
+        """
         Shows info on an incoming phone number.
 
         :param incomingNumberSid: Incoming number SID.
@@ -30,7 +30,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
         :return: `IncomingPhoneNumber` object
         :rtype: zang.domain.incoming_phone_number.IncomingPhoneNumber
         :raises ZangException:
-        '''
+        """
         incomingPhoneNumber = self._executor.read(
             ('IncomingPhoneNumbers', incomingNumberSid), IncomingPhoneNumber)
         return incomingPhoneNumber
@@ -41,7 +41,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
             friendlyName=None,
             page=None,
             pageSize=None,):
-        '''
+        """
         Shows info on all incoming numbers associated with some account
 
         :param contains: List numbers containing certain digits.
@@ -60,7 +60,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
         :return: `IncomingPhoneNumbers` object
         :rtype: zang.domain.incoming_phone_numbers.IncomingPhoneNumbers
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Contains': contains,
             'FriendlyName': friendlyName,
@@ -94,7 +94,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
             hangupCallbackMethod=None,
             voiceApplicationSid=None,
             smsApplicationSid=None,):
-        '''
+        """
         Purchases a new incoming number.
 
         :param phoneNumber: A specific available phone number you wish to add.
@@ -159,7 +159,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
         :return: `IncomingPhoneNumber` object
         :rtype: zang.domain.incoming_phone_number.IncomingPhoneNumber
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'PhoneNumber': phoneNumber,
             'AreaCode': areaCode,
@@ -206,7 +206,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
             statusCallbackMethod=None,
             hangupCallback=None,
             hangupCallbackMethod=None,):
-        '''
+        """
         Updates an incoming phone number data
 
         :param incomingNumberSid: Incoming number SID.
@@ -262,7 +262,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
         :return: `IncomingPhoneNumber` object
         :rtype: zang.domain.incoming_phone_number.IncomingPhoneNumber
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
             'VoiceUrl': voiceUrl,
@@ -288,7 +288,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
         return incomingPhoneNumber
 
     def deleteIncomingPhoneNumber(self, incomingNumberSid):
-        '''
+        """
         Deletes an incoming phone number
 
         :param incomingNumberSid: Incoming number SID.
@@ -297,7 +297,7 @@ class IncomingPhoneNumbersConnector(BaseConnector):
         :return: `IncomingPhoneNumber` object
         :rtype: zang.domain.incoming_phone_number.IncomingPhoneNumber
         :raises ZangException:
-        '''
+        """
         incomingPhoneNumber = self._executor.delete(
             ('IncomingPhoneNumbers', incomingNumberSid), IncomingPhoneNumber)
         return incomingPhoneNumber

@@ -1,34 +1,34 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.enums.product
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Product` available options
-'''
+"""
 from enum import Enum
 
 
 class Product(Enum):
-    OUTBOUND_CALL = "Outbound Call"
-    INBOUND_CALL = "Inbound Call"
-    OUTBOUND_SMS = "Outbound SMS"
-    INBOUND_SMS = "Inbound SMS"
-    OUTBOUND_SIP = "Outbound SIP"
-    INBOUND_SIP = "Inbound SIP"
-    RECORDING = "Recording"
-    RECURRING_DID = "Recurring DID"
-    RECURRING_DID_PREMIUM = "Recurring DID (Premium)"
-    TRANSCRIPTION_AUTO = "Transcription (Auto)"
-    TRANSCRIPTION_HYBRID = "Transcription (Hybrid)"
-    RECURRING_INBOUND_CHANNEL = "Recurring Inbound Channel"
-    INBOUND_CALL_CHANNEL = "Inbound Call (Channel)"
-    CNAM_DIP = "CNAM Dip"
-    CARRIER_LOOKUP = "Carrier Lookup"
-    OUTBOUND_CALL_SPOOFED = "Outbound Call (Spoofed)"
-    INBOUND_CALL_CHANNEL_OVERAGE = "Inbound Call (Channel Overage)"
-    RECURRING_DID_UNBLOCK = "Recurring DID Unblock"
-    INBOUND_CALL_UNBLOCKED = "Inbound Call Unblocked"
-    INBOUND_CALL_FORWARDED_FROM = "Inbound Call Forwarded From"
+    OUTBOUND_CALL = 'Outbound Call'
+    INBOUND_CALL = 'Inbound Call'
+    OUTBOUND_SMS = 'Outbound SMS'
+    INBOUND_SMS = 'Inbound SMS'
+    OUTBOUND_SIP = 'Outbound SIP'
+    INBOUND_SIP = 'Inbound SIP'
+    RECORDING = 'Recording'
+    RECURRING_DID = 'Recurring DID'
+    RECURRING_DID_PREMIUM = 'Recurring DID (Premium)'
+    TRANSCRIPTION_AUTO = 'Transcription (Auto)'
+    TRANSCRIPTION_HYBRID = 'Transcription (Hybrid)'
+    RECURRING_INBOUND_CHANNEL = 'Recurring Inbound Channel'
+    INBOUND_CALL_CHANNEL = 'Inbound Call (Channel)'
+    CNAM_DIP = 'CNAM Dip'
+    CARRIER_LOOKUP = 'Carrier Lookup'
+    OUTBOUND_CALL_SPOOFED = 'Outbound Call (Spoofed)'
+    INBOUND_CALL_CHANNEL_OVERAGE = 'Inbound Call (Channel Overage)'
+    RECURRING_DID_UNBLOCK = 'Recurring DID Unblock'
+    INBOUND_CALL_UNBLOCKED = 'Inbound Call Unblocked'
+    INBOUND_CALL_FORWARDED_FROM = 'Inbound Call Forwarded From'
 
     @classmethod
     def ordinal(cls, key):

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.applications_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Applications` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -19,7 +19,7 @@ class ApplicationsConnector(BaseConnector):
         super(ApplicationsConnector, self).__init__(executor)
 
     def viewApplication(self, applicationSid):
-        '''
+        """
         Shows info on a TelAPI application.
 
         :param applicationSid: Application SID.
@@ -28,13 +28,13 @@ class ApplicationsConnector(BaseConnector):
         :return: `Application` object
         :rtype: zang.domain.application.Application
         :raises ZangException:
-        '''
+        """
         application = self._executor.read(
             ('Applications', applicationSid), Application)
         return application
 
     def listApplications(self, friendlyName=None, page=None, pageSize=None):
-        '''
+        """
         Shows info on all TelAPI applications associated with some account.
 
         :param friendlyName: (optional) Filters by the application's
@@ -51,7 +51,7 @@ class ApplicationsConnector(BaseConnector):
         :return: `Applications` object
         :rtype: zang.domain.list.applications.Applications
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'FriendlyName': friendlyName,
             'Page': page,
@@ -80,7 +80,7 @@ class ApplicationsConnector(BaseConnector):
             statusCallbackMethod=None,
             hangupCallback=None,
             hangupCallbackMethod=None,):
-        '''
+        """
         Creates a new TelAPI application.
 
 
@@ -158,7 +158,7 @@ class ApplicationsConnector(BaseConnector):
         :return: `Application` object
         :rtype: zang.domain.application.Application
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
             'VoiceUrl': voiceUrl,
@@ -201,7 +201,7 @@ class ApplicationsConnector(BaseConnector):
             statusCallbackMethod=None,
             hangupCallback=None,
             hangupCallbackMethod=None,):
-        '''
+        """
         Updates TelAPI application data.
 
         :param ApplicationSid: Application SID
@@ -280,7 +280,7 @@ class ApplicationsConnector(BaseConnector):
         :return: `Application` object
         :rtype: zang.domain.application.Application
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
             'VoiceUrl': voiceUrl,
@@ -305,7 +305,7 @@ class ApplicationsConnector(BaseConnector):
         return application
 
     def deleteApplication(self, applicationSid):
-        '''
+        """
         Deletes TelAPI application.
 
         :param applicationSid: Application SID.
@@ -314,7 +314,7 @@ class ApplicationsConnector(BaseConnector):
         :return: `Application` object
         :rtype: zang.domain.application.Application
         :raises ZangException:
-        '''
+        """
         application = self._executor.delete(
             ('Applications', applicationSid), Application)
         return application

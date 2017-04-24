@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.ip_access_control_lists
 ~~~~~~~~~~~~~~~~~~~
 `IpAddresses` model
-'''
+"""
 
 from zang.domain.list.base_list import BaseList
 from zang.domain.ip_address import IpAddress

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.application_client
 ~~~~~~~~~~~~~~~~~~~
 `ApplicationClient` model
-'''
+"""
 
 from zang.domain.base_resource import BaseResource
 from zang.domain.enums.presence_status import PresenceStatus
@@ -38,58 +38,58 @@ class ApplicationClient(BaseResource):
 
     @property
     def sid(self):
-        '''An alphanumeric string identifying this resource.'''
+        """An alphanumeric string identifying this resource."""
         return self._sid
 
     @property
     def nickname(self):
-        '''Nickname of the client.'''
+        """Nickname of the client."""
         return self._nickname
 
     @property
     def accountSid(self):
-        '''An alphanumeric string identifying the account the application is
-        registered with.'''
+        """An alphanumeric string identifying the account the application is
+        registered with."""
         return self._account_sid
 
     @property
     def applicationSid(self):
-        '''An alphanumeric string identifying the application the client is
-        registered with.'''
+        """An alphanumeric string identifying the application the client is
+        registered with."""
         return self._application_sid
 
     @property
     def clientPassword(self):
-        '''A one-time password.'''
+        """A one-time password."""
         return self._client_password
 
     @property
     def remoteIp(self):
-        '''The IP address of the connecting machine.'''
+        """The IP address of the connecting machine."""
         return self._remote_ip
 
     @property
     def apiVersion(self):
-        '''The API version used with this application.'''
+        """The API version used with this application."""
         return self._api_version
 
     @property
     def uri(self):
-        '''The Uniform Resource Identifier to this resource.'''
+        """The Uniform Resource Identifier to this resource."""
         return self._uri
 
     @property
     def dateCreated(self):
-        '''The date the application resource was created.'''
+        """The date the application resource was created."""
         return self._date_created
 
     @property
     def dateUpdated(self):
-        '''The date the application resource was last updated.'''
+        """The date the application resource was last updated."""
         return self._date_updated
 
     @property
     def presenceStatus(self):
-        '''The current status of the client. Possible Values: init, idle,
-        loggedin, loggedout'''
+        """The current status of the client. Possible Values: init, idle,
+        loggedin, loggedout"""
         return self._presence_status

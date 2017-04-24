@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.recordings_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Recordings` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -14,14 +14,14 @@ from zang.domain.list.recordings import Recordings
 
 
 class RecordingsConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Recordings`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def viewRecording(self, recordingSid):
-        '''
+        """
         Shows information on some recording
 
         :param recordingSid: Recording SID.
@@ -30,7 +30,7 @@ class RecordingsConnector(BaseConnector):
         :return: `Recording` object
         :rtype: zang.domain.recording.Recording
         :raises ZangException:
-        '''
+        """
         recording = self._executor.read(
             ('Recordings', recordingSid), Recording)
         return recording
@@ -42,7 +42,7 @@ class RecordingsConnector(BaseConnector):
             dateCreatedLt=None,
             page=None,
             pageSize=None,):
-        '''
+        """
         Shows info on all recordings associated with some account
 
         :param callSid: Filters by recordings associated with a given CallSid.
@@ -62,7 +62,7 @@ class RecordingsConnector(BaseConnector):
         :return: `Recordings` object
         :rtype: zang.domain.list.recordings.Recordings
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'CallSid': callSid,
             'DateCreated>': dateCreatedGte,
@@ -86,7 +86,7 @@ class RecordingsConnector(BaseConnector):
             transcribe=None,
             transcribeQuality=None,
             transcribeCallback=None,):
-        '''
+        """
         Records a Zang call
 
         :param callSid: Call SID.
@@ -140,7 +140,7 @@ class RecordingsConnector(BaseConnector):
         :return: `Recording` object
         :rtype: zang.domain.recording.Recording
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'Record': record,
             'Direction': direction,
@@ -158,7 +158,7 @@ class RecordingsConnector(BaseConnector):
         return recording
 
     def deleteRecording(self, recordingSid):
-        '''
+        """
         Deletes a recording
 
         :param recordingSid: Recording SID.
@@ -167,7 +167,7 @@ class RecordingsConnector(BaseConnector):
         :return: `Recording` object
         :rtype: zang.domain.recording.Recording
         :raises ZangException:
-        '''
+        """
         recording = self._executor.delete(
             ('Recordings', recordingSid), Recording)
         return recording

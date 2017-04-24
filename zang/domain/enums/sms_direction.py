@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.enums.sms_direction
 ~~~~~~~~~~~~~~~~~~~
 Module containing `SmsDirection` available options
-'''
+"""
 from enum import Enum
 
 

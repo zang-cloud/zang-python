@@ -9,7 +9,7 @@ class TestConference(unittest.TestCase):
         self.name = 'ZangExampleConference'
 
     def test_init_with_required_values(self):
-        expected = "<Conference>" + self.name + '</Conference>'
+        expected = '<Conference>' + self.name + '</Conference>'
         assert Conference(self.name).xml == expected
 
     def test_init_with_optional_attributes(self):
@@ -29,12 +29,12 @@ class TestConference(unittest.TestCase):
         assert conference.xml == expected
 
     def test_udefinded_method_with_primitive_type(self):
-        '''test calling undefined method'''
+        """test calling undefined method"""
         self.assertRaises(
             AttributeError, lambda: Conference(self.name).addElement('bar'))
 
     def test_udefinded_method_with_base_node(self):
-        '''test calling undefined method'''
+        """test calling undefined method"""
         self.assertRaises(
             AttributeError,
             lambda: Conference(self.name).addElement(BaseNode()))

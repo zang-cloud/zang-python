@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.enums.call_status
 ~~~~~~~~~~~~~~~~~~~
 Module containing `CallStatus` available options
-'''
+"""
 from enum import Enum
 
 

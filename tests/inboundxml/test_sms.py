@@ -2,7 +2,6 @@ import unittest
 from zang.inboundxml.elements.sms import Sms
 from zang.inboundxml.elements.base_node import BaseNode
 from zang.domain.enums.http_method import HttpMethod
-from zang.inboundxml.elements.enums.voice import Voice
 
 
 class TestSms(unittest.TestCase):
@@ -42,5 +41,4 @@ class TestSms(unittest.TestCase):
 
 
 if __name__ == '__main__':
-
     unittest.main()

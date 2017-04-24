@@ -24,17 +24,17 @@ class BaseResource(object):
         super(BaseResource, self).__init__()
 
     def __str__(self):
-        s = ""
+        s = ''
         varNames = self._sortedVarsNames()
         for varName in varNames:
             value = vars(self)[varName]
             if value is not None:
                 valueStr = self._valueString(value)
-                s += varName[1:] + ": " + valueStr + "\n"
+                s += varName[1:] + ': ' + valueStr + '\n'
         return s
 
     def _sortedVarsNames(self):
-        '''Return sorted self variable names'''
+        """Return sorted self variable names"""
         keys = vars(self).keys()
         if sys.version_info >= (3, 0):
             keys = sorted(keys)
@@ -43,18 +43,18 @@ class BaseResource(object):
         return keys
 
     def _valueString(self, value):
-        '''If the value is not a primitive type, indent it's content'''
+        """If the value is not a primitive type, indent it's content"""
         valueStr = str(value)
         if not isinstance(
                 value,
                 (int, float, bool, basestring, datetime.datetime, Enum)):
-            valueStr = "\n\t" + valueStr.replace("\n", "\n\t")
+            valueStr = '\n\t' + valueStr.replace('\n', '\n\t')
             if valueStr.count('\n') > 1:  # remove last \n\t
                 valueStr = valueStr[:-2]
         return valueStr
 
     def _bootstrap(self):
-        '''Bootstraps the model object based on configured values.'''
+        """Bootstraps the model object based on configured values."""
         for attr in self._keys():
             privateName = '_' + attr
             setattr(self, privateName, None)

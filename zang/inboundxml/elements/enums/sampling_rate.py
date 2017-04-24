@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-zang.domain.enums.sampling_rate
+zang.inboundxml.elements.enums.sampling_rate
 ~~~~~~~~~~~~~~~~~~~
 Module containing `SamplingRate` available options
 """

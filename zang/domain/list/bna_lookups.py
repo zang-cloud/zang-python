@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.bna_lookups
 ~~~~~~~~~~~~~~~~~~~
 `BnaLookups` model
-'''
+"""
 from zang.domain.list.base_list import BaseList
 from zang.domain.bna_lookup import BnaLookup
 

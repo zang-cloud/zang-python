@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-zang.domain.enums.language
+zang.inboundxml.elements.enums.language
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Language` available options
 """

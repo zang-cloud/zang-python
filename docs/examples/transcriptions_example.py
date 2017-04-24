@@ -6,7 +6,7 @@ from zang.domain.enums.transcribe_quality import TranscribeQuality
 from zang.domain.enums.http_method import HttpMethod
 
 from datetime import date
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)

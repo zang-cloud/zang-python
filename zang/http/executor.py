@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.http.executor
 ~~~~~~~~~~~~~~~~~~~
 This module contains a default http executor.
-'''
+"""
 
 import base64
 import json
@@ -23,7 +23,7 @@ else:
 
 
 class Executor(object):
-    '''Creates a default http executor'''
+    """Creates a default http executor"""
 
     def __init__(self, configuration=None, session=None):
         if session is None:
@@ -50,12 +50,12 @@ class Executor(object):
 
     @staticmethod
     def _resource_serialize(o):
-        '''Returns JSON serialization of given object.'''
+        """Returns JSON serialization of given object."""
         return json.dumps(o)
 
     @staticmethod
     def _resource_deserialize(s):
-        '''Returns dict deserialization of a given JSON string.'''
+        """Returns dict deserialization of a given JSON string."""
         try:
             js = json.loads(s)
             return js
@@ -63,13 +63,13 @@ class Executor(object):
             raise ZangException('The API Response was not valid.')
 
     def _httpResource(self, method, url, params=None, data=None):
-        '''Makes an HTTP request.'''
+        """Makes an HTTP request."""
 
         headers = self._headers()
-        # print("url", url)
-        # print("data", data)
-        # print("params", params)
-        # print("headers", headers)
+        # print('url', url)
+        # print('data', data)
+        # print('params', params)
+        # print('headers', headers)
 
         r = self._session.request(
             method, url, params=params, headers=headers, data=data)

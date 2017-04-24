@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.carrier_services_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Carrier` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -20,14 +20,14 @@ from zang.domain.list.bna_lookups import BnaLookups
 
 
 class CarrierServicesConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Lookups`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def viewCarrierLookup(self, phoneNumber):
-        '''
+        """
         The Carrier Lookup API allows you to retrieve additional information
         about a phone number.
 
@@ -37,7 +37,7 @@ class CarrierServicesConnector(BaseConnector):
         :return: `CarrierLookup` object
         :rtype: zang.domain.carrier_lookup.CarrierLookup
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'PhoneNumber': phoneNumber,
         }
@@ -47,7 +47,7 @@ class CarrierServicesConnector(BaseConnector):
         return carrierLookup
 
     def listCarrierLookups(self, page=None, pageSize=None):
-        '''
+        """
         Shows info on all carrier lookups associated with some account
 
         :param page: (optional) Used to return a particular page within the
@@ -61,7 +61,7 @@ class CarrierServicesConnector(BaseConnector):
         :return: `CarrierLookups` object
         :rtype: zang.domain.list.carrier_lookups.CarrierLookups
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Page': page,
             'PageSize': pageSize,
@@ -72,7 +72,7 @@ class CarrierServicesConnector(BaseConnector):
         return carrierLookups
 
     def viewCnamLookup(self, phoneNumber):
-        '''
+        """
         Shows a CNAM information on some phone number
 
         :param phoneNumber: The number of the phone you are attempting to
@@ -83,9 +83,9 @@ class CarrierServicesConnector(BaseConnector):
         :return: `CnamLookup` object
         :rtype: zang.domain.cnam_lookup.CnamLookup
         :raises ZangException:
-        '''
+        """
         bodyParams = {
-            "PhoneNumber": phoneNumber,
+            'PhoneNumber': phoneNumber,
         }
         data = flatDict(bodyParams)
         cnamLookup = self._executor.update(
@@ -93,7 +93,7 @@ class CarrierServicesConnector(BaseConnector):
         return cnamLookup
 
     def listCnamLookups(self, page=None, pageSize=None):
-        '''
+        """
         Shows info on all CNAM lookups associated with some account
 
         :param page: (optional) Used to return a particular page within the
@@ -107,7 +107,7 @@ class CarrierServicesConnector(BaseConnector):
         :return: `CnamLookups` object
         :rtype: zang.domain.list.cnam_lookups.CnamLookups
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Page': page,
             'PageSize': pageSize,
@@ -118,7 +118,7 @@ class CarrierServicesConnector(BaseConnector):
         return cnamLookups
 
     def viewBnaLookup(self, phoneNumber):
-        '''
+        """
         Shows information on billing name address for some phone number.
 
         :param phoneNumber: The number of the phone you are attempting to
@@ -129,9 +129,9 @@ class CarrierServicesConnector(BaseConnector):
         :return: `BnaLookup` object
         :rtype: zang.domain.bna_lookup.BnaLookup
         :raises ZangException:
-        '''
+        """
         bodyParams = {
-            "PhoneNumber": phoneNumber,
+            'PhoneNumber': phoneNumber,
         }
         data = flatDict(bodyParams)
         bnaLookup = self._executor.update(
@@ -139,7 +139,7 @@ class CarrierServicesConnector(BaseConnector):
         return bnaLookup
 
     def listBnaLookups(self, page=None, pageSize=None):
-        '''
+        """
         Shows info on all BNA lookups associated with some account.
 
         :param page: (optional) Used to return a particular page within the
@@ -153,7 +153,7 @@ class CarrierServicesConnector(BaseConnector):
         :return: `BnaLookups` object
         :rtype: zang.domain.list.bna_lookups.BnaLookups
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Page': page,
             'PageSize': pageSize,

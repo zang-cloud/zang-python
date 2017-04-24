@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.notification
 ~~~~~~~~~~~~~~~~~~~
 `Notification` model
-'''
+"""
 from zang.domain.base_resource import BaseResource
 from zang.domain.enums.http_method import HttpMethod
 from zang.domain.enums.log_level import LogLevel

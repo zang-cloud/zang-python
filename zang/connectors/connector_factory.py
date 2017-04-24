@@ -23,7 +23,7 @@ from zang.connectors.fraud_control_connector import FraudControlConnector
 
 
 class ConnectorFactory(object):
-    '''The main Zang class.'''
+    """The main Zang class."""
 
     def __init__(self, configuration=None, session=None):
         self.executor = Executor(session=session, configuration=configuration)

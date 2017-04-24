@@ -1,6 +1,5 @@
 import unittest
 from zang.inboundxml.elements.dial import Dial
-from zang.inboundxml.elements.base_node import BaseNode
 from zang.domain.enums.http_method import HttpMethod
 from zang.inboundxml.elements.number import Number
 

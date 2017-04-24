@@ -5,7 +5,7 @@ from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 from zang.domain.enums.conference_status import ConferenceStatus
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
@@ -14,7 +14,7 @@ conferencesConnector = ConnectorFactory(configuration).conferencesConnector
 
 # view conference
 try:
-    conference = conferencesConnector.viewConference("TestConferenceSid")
+    conference = conferencesConnector.viewConference('TestConferenceSid')
     print(conference.friendlyName)
 except ZangException as ze:
     print(ze)
@@ -25,7 +25,7 @@ try:
     fromDate = date(2016, 12, 31)
     toDate = date(2017, 12, 31)
     conferences = conferencesConnector.listConferences(
-        friendlyName="TestConferenceSid",
+        friendlyName='TestConferenceSid',
         status=ConferenceStatus.COMPLETED,
         dateCreatedGte=fromDate,
         dateCreatedLt=toDate,
@@ -42,7 +42,7 @@ except ZangException as ze:
 
 # view participant
 try:
-    conference = conferencesConnector.viewConference("TestConferenceSid")
+    conference = conferencesConnector.viewConference('TestConferenceSid')
     print(conference.friendlyName)
 except ZangException as ze:
     print(ze)
@@ -50,7 +50,7 @@ except ZangException as ze:
 # list participants
 try:
     participants = conferencesConnector.listParticipants(
-        "TestConferenceSid", False, False, 0, 33)
+        'TestConferenceSid', False, False, 0, 33)
     print(participants.total)
 except ZangException as ze:
     print(ze)
@@ -58,7 +58,7 @@ except ZangException as ze:
 # mute/deaf participant
 try:
     participant = conferencesConnector.deafOrMuteParticipant(
-        "TestConferenceSid", "TestParticipantSid", True, True)
+        'TestConferenceSid', 'TestParticipantSid', True, True)
     print(participant.muted)
 except ZangException as ze:
     print(ze)
@@ -66,8 +66,8 @@ except ZangException as ze:
 # play audio to participant
 try:
     participant = conferencesConnector.playAudioToParticipant(
-        "TestConferenceSid", "TestParticipantSid",
-        "http://mydomain.com/audio.mp3")
+        'TestConferenceSid', 'TestParticipantSid',
+        'http://mydomain.com/audio.mp3')
     print(participant.duration)
 except ZangException as ze:
     print(ze)
@@ -75,7 +75,7 @@ except ZangException as ze:
 # hangup participant
 try:
     participant = conferencesConnector.hangupParticipant(
-        "TestConferenceSid", "TestParticipantSid")
+        'TestConferenceSid', 'TestParticipantSid')
     print(participant.callerNumber)
 except ZangException as ze:
     print(ze)

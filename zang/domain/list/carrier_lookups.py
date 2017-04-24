@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.carrier_lookups
 ~~~~~~~~~~~~~~~~~~~
 `CarrierLookups` model
-'''
+"""
 from zang.domain.list.base_list import BaseList
 from zang.domain.carrier_lookup import CarrierLookup
 

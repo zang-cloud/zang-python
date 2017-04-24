@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.inboundxml.elements.conference
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Conference` inbound xml element
-'''
+"""
 
 from zang.inboundxml.elements.base_node import BaseNode
 

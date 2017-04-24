@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 """
-zang.domain.enums.voice
+zang.inboundxml.elements.enums.enums.voice
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Voice` available options
 """

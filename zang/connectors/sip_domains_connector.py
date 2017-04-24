@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.sip_domains_connector
 ~~~~~~~~~~~~
 
 Used for all forms of communication with the Sip Domains endpoint of the
     Zang REST API.
 see ConnectorFactory
-'''
+"""
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
 
@@ -22,32 +22,32 @@ from zang.domain.list.ip_access_control_lists import IpAccessControlLists
 
 
 class SipDomainsConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `SIP Domains` endpoint
         of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def __init__(self, executor):
         super(SipDomainsConnector, self).__init__(executor)
 
     def viewDomain(self, domainSid):
-        '''
+        """
         Shows information about a domain
 
         :rtype: Information about the domain
         :raises: ZangException
-        '''
+        """
         domain = self._executor.read(('SIP', 'Domains', domainSid), Domain)
         return domain
 
     def listDomains(self):
-        '''
+        """
         Lists available domains
 
         :rtype: A list of available domains
         :raises: ZangException
-        '''
+        """
         domains = self._executor.read(('SIP', 'Domains'), Domains)
         return domains
 
@@ -63,7 +63,7 @@ class SipDomainsConnector(BaseConnector):
             heartbeatMethod=None,
             voiceStatusCallback=None,
             voiceStatusCallbackMethod=None,):
-        '''
+        """
         Create a domain.
 
         :param domainName: An address on TelAPI uniquely associated with your
@@ -100,7 +100,7 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: The created Domain
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'DomainName': domainName,
             'FriendlyName': friendlyName,
@@ -129,7 +129,7 @@ class SipDomainsConnector(BaseConnector):
             heartbeatMethod=None,
             voiceStatusCallback=None,
             voiceStatusCallbackMethod=None,):
-        '''
+        """
         Update a domain.
 
         :param domainSid: Domain SID
@@ -165,7 +165,7 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: The updated Domain
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
             'VoiceUrl': voiceUrl,
@@ -183,7 +183,7 @@ class SipDomainsConnector(BaseConnector):
         return domain
 
     def deleteDomain(self, domainSid):
-        '''
+        """
         Delete a domain.
 
         :param domainSid: Domain SID.
@@ -191,14 +191,14 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: The deleted Domain
         :raises: ZangException
-        '''
+        """
         domain = self._executor.delete(('SIP', 'Domains', domainSid), Domain)
         return domain
 
     # Map Credentials List
 
     def listMappedCredentialsLists(self, domainSid):
-        '''
+        """
         Shows info on credential lists attached to a SIP domain.
 
         :param domainSid: Domain SID.
@@ -206,14 +206,14 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: zang.domain.list.credentials_lists.CredentialsLists
         :raises: ZangException
-        '''
+        """
         credentialsLists = self._executor.read(
             ('SIP', 'Domains', domainSid, 'CredentialListMappings'),
             CredentialsLists)
         return credentialsLists
 
     def mapCredentialsLists(self, domainSid, credentialListSid):
-        '''
+        """
         Maps credentials list to a SIP domain.
 
         :param domainSid: Domain SID.
@@ -225,7 +225,7 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: zang.domain.credentials_list.CredentialsList
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'CredentialListSid': credentialListSid
         }
@@ -236,7 +236,7 @@ class SipDomainsConnector(BaseConnector):
         return credentialsListsList
 
     def deleteMappedCredentialsList(self, domainSid, credentialsListSid):
-        '''
+        """
         Deletes a credential list mapped to some SIP domain
 
         :param domainSid: Domain SID.
@@ -247,7 +247,7 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: zang.domain.credentials_list.CredentialsList
         :raises: ZangException
-        '''
+        """
         credentialsListsList = self._executor.delete(
             ('SIP', 'Domains', domainSid, 'CredentialListMappings',
                 credentialsListSid), CredentialsList)
@@ -256,7 +256,7 @@ class SipDomainsConnector(BaseConnector):
     # Map IP ACL
 
     def listMappedIpAccessControlLists(self, domainSid):
-        '''
+        """
         Shows info on IP access control lists attached to a SIP domain
 
         :param domainSid: Domain SID.
@@ -264,14 +264,14 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: zang.domain.list.ip_access_control_lists.IpAccessControlLists
         :raises: ZangException
-        '''
+        """
         ipAccessControlLists = self._executor.read(
             ('SIP', 'Domains', domainSid, 'IpAccessControlListMappings'),
             IpAccessControlLists)
         return ipAccessControlLists
 
     def mapIpAccessControlList(self, domainSid, ipAccessControlListSid):
-        '''
+        """
         Maps IP access control list to a SIP domain.
 
         :param domainSid: Domain SID.
@@ -283,7 +283,7 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: zang.domain.ip_access_control_list.IpAccessControlList
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'IpAccessControlListSid': ipAccessControlListSid
         }
@@ -294,7 +294,7 @@ class SipDomainsConnector(BaseConnector):
         return ipAccessControlList
 
     def deleteMappedIpAccessControlList(self, domainSid, alsId):
-        '''
+        """
         Detaches an IP access control list from a SIP domain
 
         :param domainSid: Domain SID.
@@ -305,7 +305,7 @@ class SipDomainsConnector(BaseConnector):
 
         :rtype: zang.domain.ip_access_control_list.IpAccessControlList
         :raises: ZangException
-        '''
+        """
         ipAccessControlList = self._executor.delete(
             ('SIP', 'Domains', domainSid, 'IpAccessControlListMappings',
                 alsId), IpAccessControlList)

@@ -24,7 +24,7 @@ class TestSmsMessages(unittest.TestCase):
     def test_list(self):
         TestUtil.start('SmsTest', 'listSms')
         smsMessages = self.connector.listSmsMessages(
-            "+123456", page=0, pageSize=10)
+            '+123456', page=0, pageSize=10)
         cnt = 0
         fromList = None
         for smsMessage in smsMessages.elements:
@@ -37,13 +37,13 @@ class TestSmsMessages(unittest.TestCase):
     def test_send(self):
         TestUtil.start('SmsTest', 'sendSms')
         smsMessage = self.connector.sendSmsMessage(
-            to="+123456", from_="+654321", body="test from java",
-            statusCallback="callback.url",
+            to='+123456', from_='+654321', body='test from java',
+            statusCallback='callback.url',
             statusCallbackMethod=HttpMethod.GET.value, allowMultiple=False)
         self.checkMessage(smsMessage)
 
     def checkMessage(self, smsMessage):
-        assert smsMessage.body == "test from java"
+        assert smsMessage.body == 'test from java'
         assert smsMessage.status == SmsMessageStatus.SENT
         assert smsMessage.direction == SmsDirection.OUTBOUND_API
         assert smsMessage.price == 0.0616

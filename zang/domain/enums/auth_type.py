@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.enums.auth_type
 ~~~~~~~~~~~~~~~~~~~
 Module containing `AuthType` available options
-'''
+"""
 from enum import Enum
 
 

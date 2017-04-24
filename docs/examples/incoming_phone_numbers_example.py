@@ -3,7 +3,7 @@ from zang.exceptions.zang_exception import ZangException
 from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 
@@ -15,7 +15,7 @@ incomingPhoneNumbersConnector = ConnectorFactory(
 # view incoming phone number
 try:
     number = incomingPhoneNumbersConnector.viewIncomingPhoneNumber(
-        "TestIncomingPhoneNumberSid")
+        'TestIncomingPhoneNumberSid')
     print(number.friendlyName)
 except ZangException as ze:
     print(ze)
@@ -24,7 +24,7 @@ except ZangException as ze:
 # list incoming phone numbers
 try:
     numbers = incomingPhoneNumbersConnector.listIncomingPhoneNumbers(
-        "123", "MyNumber", 0, 25)
+        '123', 'MyNumber', 0, 25)
     print(numbers.total)
 except ZangException as ze:
     print(ze)
@@ -33,11 +33,11 @@ except ZangException as ze:
 # purchase incoming phone number
 try:
     numbers = incomingPhoneNumbersConnector.purchaseIncomingPhoneNumber(
-        friendlyName="MyNumber",
-        areaCode="123",
+        friendlyName='MyNumber',
+        areaCode='123',
         voiceCallerIdLookup=True,
-        voiceApplicationSid="VoiceApplicationSid",
-        smsApplicationSid="SmsApplicationSid")
+        voiceApplicationSid='VoiceApplicationSid',
+        smsApplicationSid='SmsApplicationSid')
     print(numbers.sid)
 except ZangException as ze:
     print(ze)
@@ -46,7 +46,7 @@ except ZangException as ze:
 # update incoming phone number
 try:
     numbers = incomingPhoneNumbersConnector.updateIncomingPhoneNumber(
-        "TestIncomingPhoneNumberSid", friendlyName="MyFavoriteNumber")
+        'TestIncomingPhoneNumberSid', friendlyName='MyFavoriteNumber')
     print(numbers.friendlyName)
 except ZangException as ze:
     print(ze)
@@ -55,7 +55,7 @@ except ZangException as ze:
 # delete incoming phone number
 try:
     numbers = incomingPhoneNumbersConnector.deleteIncomingPhoneNumber(
-        "TestIncomingPhoneNumberSid")
+        'TestIncomingPhoneNumberSid')
     print(numbers.sid)
 except ZangException as ze:
     print(ze)

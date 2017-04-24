@@ -83,13 +83,13 @@ class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         #       self.command == expectation.method)
         # print(self.pathWithoutQuery, expectation.path,
         #       self.pathWithoutQuery == expectation.path)
-        # print("\nreceived bodyParams:", bodyParams)
-        # print("\nexpected bodyParams:", expectation.bodyParams)
-        # print("\nBody params ok:", self._isParamsEqual(
+        # print('\nreceived bodyParams:', bodyParams)
+        # print('\nexpected bodyParams:', expectation.bodyParams)
+        # print('\nBody params ok:', self._isParamsEqual(
         #     bodyParams, expectation.bodyParams))
-        # print("\nreceived queryParams:", queryParams)
-        # print("\nexpected queryParams:", expectation.queryParams)
-        # print("\nqueryParams ok:", self._isParamsEqual(
+        # print('\nreceived queryParams:', queryParams)
+        # print('\nexpected queryParams:', expectation.queryParams)
+        # print('\nqueryParams ok:', self._isParamsEqual(
         #     queryParams, expectation.queryParams))
 
         if (self.command == expectation.method and
@@ -152,7 +152,7 @@ class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             if contentLen > 0:
                 self._bodyParams = self.rfile.read(contentLen)
                 if sys.version_info >= (3, 0):
-                    self._bodyParams = self._bodyParams.decode("utf-8")
+                    self._bodyParams = self._bodyParams.decode('utf-8')
             else:
                 self._bodyParams = None
         else:
@@ -180,13 +180,3 @@ class TestUtil(object):
         expectation = Expectation(group, test)
         serverAddress = ('', PORT_NUMBER)
         MockHTTPServer(expectation, serverAddress, MockHTTPRequestHandler)
-
-
-"""
-('CONTENT', 26, <socket._fileobject object at 0x1034b92d0>)
-<type 'str'>
-
-
-CONTENT 26 <_io.BufferedReader name=9>
-<class 'bytes'>
-"""

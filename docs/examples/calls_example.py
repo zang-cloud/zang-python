@@ -14,7 +14,7 @@ from zang.domain.enums.transcribe_quality import TranscribeQuality
 
 from zang.exceptions.zang_exception import ZangException
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 
@@ -24,7 +24,7 @@ callsConnector = ConnectorFactory(configuration).callsConnector
 
 # view call
 try:
-    call = callsConnector.viewCall("TestCallSid")
+    call = callsConnector.viewCall('TestCallSid')
     print(call.duration)
 except ZangException as ze:
     print(ze)
@@ -34,8 +34,8 @@ except ZangException as ze:
 try:
     startTimeGte = date(2017, 4, 1)
     calls = callsConnector.listCalls(
-        to="+123456",
-        from_="+654321",
+        to='+123456',
+        from_='+654321',
         status=CallStatus.COMPLETED,
         startTimeGte=date(2016, 12, 31),
         startTimeLt=date(2017, 12, 31),
@@ -52,31 +52,31 @@ except ZangException as ze:
 # make call
 try:
     call = callsConnector.makeCall(
-        to="+123456",
-        from_="+654321",
-        url="TestUrl",
+        to='+123456',
+        from_='+654321',
+        url='TestUrl',
         method=HttpMethod.GET,
-        fallbackUrl="FallbackUrl",
+        fallbackUrl='FallbackUrl',
         fallbackMethod=HttpMethod.POST,
-        statusCallback="StatusCallback",
+        statusCallback='StatusCallback',
         statusCallbackMethod=HttpMethod.GET,
-        heartbeatUrl="HeartbeatUrl",
+        heartbeatUrl='HeartbeatUrl',
         heartbeatMethod=HttpMethod.GET,
-        forwardedFrom="1234",
-        playDtmf="123#",
+        forwardedFrom='1234',
+        playDtmf='123#',
         timeout=122,
         hideCallerId=True,
         record=True,
-        recordCallback="RecordCallback",
+        recordCallback='RecordCallback',
         recordCallbackMethod=HttpMethod.GET,
         transcribe=True,
-        transcribeCallback="TranscribeCallback",
+        transcribeCallback='TranscribeCallback',
         straightToVoicemail=True,
         ifMachine=IfMachine.REDIRECT,
-        ifMachineUrl="IfMachineUrl",
+        ifMachineUrl='IfMachineUrl',
         ifMachineMethod=HttpMethod.GET,
-        sipAuthUsername="username",
-        sipAuthPassword="password")
+        sipAuthUsername='username',
+        sipAuthPassword='password')
     print(call.sid)
 except ZangException as ze:
     print(ze)
@@ -85,8 +85,8 @@ except ZangException as ze:
 # interrupt live call
 try:
     call = callsConnector.interruptLiveCall(
-        "TestCallSid",
-        url="TestUrl",
+        'TestCallSid',
+        url='TestUrl',
         method=HttpMethod.GET,
         status=EndCallStatus.CANCELED)
     print(call.status)
@@ -97,8 +97,8 @@ except ZangException as ze:
 # send digits to live call
 try:
     call = callsConnector.sendDigitsToLiveCall(
-        "TestCallSid",
-        playDtmf="0123#",
+        'TestCallSid',
+        playDtmf='0123#',
         playDtmfDirection=AudioDirection.OUT)
     print(call.status)
 except ZangException as ze:
@@ -108,16 +108,16 @@ except ZangException as ze:
 # record live call
 try:
     call = callsConnector.recordLiveCall(
-        "TestCallSid",
+        'TestCallSid',
         True,
         direction=RecordingAudioDirection.BOTH,
         timeLimit=15,
-        callbackUrl="TestUrl",
+        callbackUrl='TestUrl',
         fileFormat=RecordingFileFormat.MP3,
         trimSilence=True,
         transcribe=True,
         transcriptionQuality=TranscribeQuality.HYBRID,
-        transcribeCallback="TestTranscribeUrl",)
+        transcribeCallback='TestTranscribeUrl',)
     print(call.status)
 except ZangException as ze:
     print(ze)
@@ -126,7 +126,7 @@ except ZangException as ze:
 # play audio to live call
 try:
     call = callsConnector.playAudioToLiveCall(
-        "TestCallSid", "AudioUrl", RecordingAudioDirection.BOTH, True)
+        'TestCallSid', 'AudioUrl', RecordingAudioDirection.BOTH, True)
     print(call.status)
 except ZangException as ze:
     print(ze)
@@ -135,7 +135,7 @@ except ZangException as ze:
 # apply voice effect
 try:
     call = callsConnector.playAudioToLiveCall(
-        "TestCallSid", AudioDirection.OUT, 5, 4, 3, 2, 1)
+        'TestCallSid', AudioDirection.OUT, 5, 4, 3, 2, 1)
     print(call.status)
 except ZangException as ze:
     print(ze)

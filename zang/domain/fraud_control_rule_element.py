@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.fraud_control_rule_whitelisted
 ~~~~~~~~~~~~~~~~~~~
 `FraudControlRuleElement` model
-'''
+"""
 
 from zang.domain.base_resource import BaseResource
 from zang.domain.fraud_control_rule import FraudControlRule

@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.inboundxml.elements.response
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Response` inbound xml element
-'''
+"""
+from zang.inboundxml.elements.constants import XML_DECLARATION
 
 from zang.inboundxml.elements.base_node import BaseNode
 from zang.inboundxml.elements.answer import Answer
@@ -72,7 +73,17 @@ class Response(BaseNode):
         if isinstance(element, type(self)._allowedContentClass):
             self._content.append(element)
         else:
-            raise TypeError("Element not allowed for content model")
+            raise TypeError('Element not allowed for content model')
 
     def removeElementAtIndex(self, index):
         del self._content[index]
+
+    @property
+    def xml(self):
+        """
+        Create a xml element with corresponding attributes and child elements.
+
+        :rtype: str
+        """
+        s = XML_DECLARATION + super(Response, self).xml
+        return s

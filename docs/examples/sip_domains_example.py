@@ -3,7 +3,7 @@ from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
 from zang.domain.enums.http_method import HttpMethod
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 
 url = 'http://api.zang.io/v2'
 
@@ -13,7 +13,7 @@ sipDomainsConnector = ConnectorFactory(configuration).sipDomainsConnector
 
 # view domain
 try:
-    domain = sipDomainsConnector.viewDomain("TestDomainSid")
+    domain = sipDomainsConnector.viewDomain('TestDomainSid')
     print(domain)
 except ZangException as ze:
     print(ze)
@@ -30,11 +30,11 @@ except ZangException as ze:
 # create domain
 try:
     domain = sipDomainsConnector.createDomain(
-        domainName="mydomain.com",
-        friendlyName="MyDomain",
-        voiceUrl="VoiceUrl",
+        domainName='mydomain.com',
+        friendlyName='MyDomain',
+        voiceUrl='VoiceUrl',
         voiceMethod=HttpMethod.POST,
-        voiceFallbackUrl="VoiceFallbackUrl",
+        voiceFallbackUrl='VoiceFallbackUrl',
         voiceFallbackMethod=HttpMethod.GET)
     print(domain.sid)
 except ZangException as ze:
@@ -44,9 +44,9 @@ except ZangException as ze:
 # update domain
 try:
     domain = sipDomainsConnector.updateDomain(
-        "TestDomainSid",
-        friendlyName="MyDomain3",
-        voiceUrl="VoiceUrl2",
+        'TestDomainSid',
+        friendlyName='MyDomain3',
+        voiceUrl='VoiceUrl2',
         voiceMethod=HttpMethod.POST,)
     print(domain.voiceUrl)
 except ZangException as ze:
@@ -55,7 +55,7 @@ except ZangException as ze:
 
 # delete domain
 try:
-    domain = sipDomainsConnector.deleteDomain("TestDomainSid")
+    domain = sipDomainsConnector.deleteDomain('TestDomainSid')
     print(domain.sid)
 except ZangException as ze:
     print(ze)
@@ -64,7 +64,7 @@ except ZangException as ze:
 # list mapped credentials lists
 try:
     credentialsLists = sipDomainsConnector.listMappedCredentialsLists(
-        "TestDomainSid")
+        'TestDomainSid')
     print(credentialsLists.total)
 except ZangException as ze:
     print(ze)
@@ -73,7 +73,7 @@ except ZangException as ze:
 # map credentials list
 try:
     credentialsList = sipDomainsConnector.mapCredentialsLists(
-        "TestDomainSid", "TestCredentialsListSid")
+        'TestDomainSid', 'TestCredentialsListSid')
     print(credentialsList.credentialsCount)
 except ZangException as ze:
     print(ze)
@@ -82,7 +82,7 @@ except ZangException as ze:
 # delete mapped credentials list
 try:
     credentialsList = sipDomainsConnector.deleteMappedCredentialsList(
-        "TestDomainSid", "TestCredentialsListSid")
+        'TestDomainSid', 'TestCredentialsListSid')
     print(credentialsList.friendlyName)
 except ZangException as ze:
     print(ze)
@@ -91,7 +91,7 @@ except ZangException as ze:
 # list mapped ip access control lists
 try:
     aclLists = sipDomainsConnector.listMappedIpAccessControlLists(
-        "TestDomainSid")
+        'TestDomainSid')
     print(aclLists.total)
 except ZangException as ze:
     print(ze)
@@ -100,7 +100,7 @@ except ZangException as ze:
 # map ip access control list
 try:
     aclList = sipDomainsConnector.mapIpAccessControlList(
-        "TestDomainSid", "TestIpAccessControlListSid")
+        'TestDomainSid', 'TestIpAccessControlListSid')
     print(aclList.credentialsCount)
 except ZangException as ze:
     print(ze)
@@ -109,7 +109,7 @@ except ZangException as ze:
 # delete mapped ip access control list
 try:
     aclList = sipDomainsConnector.deleteMappedIpAccessControlList(
-        "TestDomainSid", "TestIpAccessControlListSid")
+        'TestDomainSid', 'TestIpAccessControlListSid')
     print(aclList.friendlyName)
 except ZangException as ze:
     print(ze)

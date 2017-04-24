@@ -17,18 +17,18 @@ class TestAvailablePhoneNumber(unittest.TestCase):
 
     def test_list_application_client(self):
         TestUtil.start(
-            "AvailablePhoneNumbersTest", "listAvailablePhoneNumbers")
+            'AvailablePhoneNumbersTest', 'listAvailablePhoneNumbers')
         availablePhoneNumbers = self.connector.listAvailablePhoneNumbers(
-            country="HR",
+            country='HR',
             type_=AvailableNumberType.TOLLFREE,
-            contains="123",
-            areaCode="052",
-            inRegion="Istria",
-            inPostalCode="52210",
+            contains='123',
+            areaCode='052',
+            inRegion='Istria',
+            inPostalCode='52210',
             page=0,
             pageSize=20,)
         availablePhoneNumber = availablePhoneNumbers.elements[0]
         self.check_available_phone_number(availablePhoneNumber)
 
     def check_available_phone_number(self, availablePhoneNumber):
-        assert availablePhoneNumber.isoCountry == "HR"
+        assert availablePhoneNumber.isoCountry == 'HR'

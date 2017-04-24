@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.inboundxml.elements.ping
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Ping` inbound xml element
-'''
+"""
 
 from zang.inboundxml.elements.base_node import BaseNode
 

@@ -3,7 +3,7 @@ from zang.exceptions.zang_exception import ZangException
 from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 
@@ -15,7 +15,7 @@ applicationClientsConnector = ConnectorFactory(
 # view application client
 try:
     applicationClient = applicationClientsConnector.viewApplicationClient(
-        "TestApplicationSid", "TestApplicationClientSid")
+        'TestApplicationSid', 'TestApplicationClientSid')
     print(applicationClient.nickname)
 except ZangException as ze:
     print(ze)
@@ -24,7 +24,7 @@ except ZangException as ze:
 # list application clients
 try:
     applicationClients = applicationClientsConnector.listApplicationClients(
-        "TestApplicationSid")
+        'TestApplicationSid')
     print(applicationClients.total)
 except ZangException as ze:
     print(ze)
@@ -33,7 +33,7 @@ except ZangException as ze:
 # create application client
 try:
     applicationClient = applicationClientsConnector.createApplicationClient(
-        "TestApplicationSid", "MyApplicationClient")
+        'TestApplicationSid', 'MyApplicationClient')
     print(applicationClient.sid)
 except ZangException as ze:
     print(ze)

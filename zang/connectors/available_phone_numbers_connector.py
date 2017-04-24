@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.available_phone_numbers_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `AvailablePhoneNumbers` endpoint
-'''
+"""
 from enum import Enum
 
 from zang.connectors.base_connector import BaseConnector
@@ -14,11 +14,11 @@ from zang.domain.list.available_phone_numbers import AvailablePhoneNumbers
 
 
 class AvailablePhoneNumbersConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `AvailablePhoneNumbers`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def listAvailablePhoneNumbers(
             self,
@@ -30,7 +30,7 @@ class AvailablePhoneNumbersConnector(BaseConnector):
             areaCode=None,
             inRegion=None,
             inPostalCode=None,):
-        '''
+        """
         Shows information on all phone numbers available for purchasing
 
         :param country: Two letter country code.
@@ -61,7 +61,7 @@ class AvailablePhoneNumbersConnector(BaseConnector):
         :return: `AvailablePhoneNumbers` object
         :rtype: zang.domain.list.available_phone_numbers.AvailablePhoneNumbers
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Country': country,
             'Type': type_,

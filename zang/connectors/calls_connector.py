@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.calls_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Calls` endpoint
-'''
+"""
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
 
@@ -13,17 +13,17 @@ from zang.domain.list.calls import Calls
 
 
 class CallsConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Calls`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def __init__(self, executor):
         super(CallsConnector, self).__init__(executor)
 
     def viewCall(self, callSid):
-        '''
+        """
         View all information about a call.
 
         :param callSid:
@@ -32,7 +32,7 @@ class CallsConnector(BaseConnector):
         :return: An `Call` resource.
         :rtype: zang.domain.call.Call
         :raises: ZangException
-        '''
+        """
         call = self._executor.read(('Calls', callSid), Call)
         return call
 
@@ -45,7 +45,7 @@ class CallsConnector(BaseConnector):
             startTimeLt=None,
             page=None,
             pageSize=None,):
-        '''
+        """
         List all calls associated with your account or filter results.filter.
 
         :param to: Filter by a specific number calls were made to.
@@ -71,7 +71,7 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
+        """
         queryParams = {
             'To': to,
             'From': from_,
@@ -112,7 +112,7 @@ class CallsConnector(BaseConnector):
             ifMachineMethod=None,
             sipAuthUsername=None,
             sipAuthPassword=None,):
-        '''
+        """
         :param to: The phone number or SIP endpoint to call. Phone number
             should be in international format and one recipient per request.
             For e.g, to dial a number in the US, the To should be,
@@ -239,7 +239,7 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'To': to,
             'From': from_,
@@ -277,7 +277,7 @@ class CallsConnector(BaseConnector):
             url=None,
             method=None,
             status=None,):
-        '''
+        """
         Send new instructions to the call.
 
         :param callSid: Call SID.
@@ -297,8 +297,8 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
-        bodyParams = {"Url": url, "Method": method, "Status": status}
+        """
+        bodyParams = {'Url': url, 'Method': method, 'Status': status}
         data = flatDict(bodyParams)
         call = self._executor.update(('Calls', callSid), Call, data=data)
         return call
@@ -308,7 +308,7 @@ class CallsConnector(BaseConnector):
             callSid,
             playDtmf=None,
             playDtmfDirection=None,):
-        '''
+        """
         Use DTMF tones to mimic button presses.
 
         :param callSid: Call SID.
@@ -329,10 +329,10 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
+        """
         bodyParams = {
-            "PlayDtmf": playDtmf,
-            "PlayDtmfDirection": playDtmfDirection
+            'PlayDtmf': playDtmf,
+            'PlayDtmfDirection': playDtmfDirection
         }
         data = flatDict(bodyParams)
         call = self._executor.update(('Calls', callSid), Call, data=data)
@@ -350,7 +350,7 @@ class CallsConnector(BaseConnector):
             transcribe=None,
             transcriptionQuality=None,
             transcribeCallback=None,):
-        '''
+        """
         Options include time limit, file format, trimming silence and
         transcribing
 
@@ -405,17 +405,17 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
+        """
         bodyParams = {
-            "Record": record,
-            "Direction": direction,
-            "TimeLimit": timeLimit,
-            "CallbackUrl": callbackUrl,
-            "FileFormat": fileFormat,
-            "TrimSilence": trimSilence,
-            "Transcribe": transcribe,
-            "TranscribeQuality": transcriptionQuality,
-            "TranscribeCallback": transcribeCallback,
+            'Record': record,
+            'Direction': direction,
+            'TimeLimit': timeLimit,
+            'CallbackUrl': callbackUrl,
+            'FileFormat': fileFormat,
+            'TrimSilence': trimSilence,
+            'Transcribe': transcribe,
+            'TranscribeQuality': transcriptionQuality,
+            'TranscribeCallback': transcribeCallback,
         }
         data = flatDict(bodyParams)
         call = self._executor.update(
@@ -428,7 +428,7 @@ class CallsConnector(BaseConnector):
             audioUrl,
             direction=None,
             loop=None,):
-        '''
+        """
         Options include restricting to one caller and looping.
 
         :param callSid: Call SID.
@@ -450,7 +450,7 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'AudioUrl': audioUrl,
             'Direction': direction,
@@ -470,7 +470,7 @@ class CallsConnector(BaseConnector):
             pitchOctaves=None,
             rate=None,
             tempo=None,):
-        '''
+        """
         Applies voice effect on the call.
 
         :param CallSid: Call SID.
@@ -500,7 +500,7 @@ class CallsConnector(BaseConnector):
         :return: An `Calls` resource.
         :rtype: zang.domain.list.calls.Calls
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'AudioDirection': direction,
             'Pitch': pitch,

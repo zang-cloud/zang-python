@@ -16,9 +16,9 @@ class TestNotifications(unittest.TestCase):
         self.connector = connectorFactory.notificationsConnector
 
     def test_view_notification(self):
-        TestUtil.start("NotificationsTest", "viewNotification")
-        self.connector.viewNotification("TestNotificationSid")
+        TestUtil.start('NotificationsTest', 'viewNotification')
+        self.connector.viewNotification('TestNotificationSid')
 
     def test_list_notification(self):
-        TestUtil.start("NotificationsTest", "listNotifications")
+        TestUtil.start('NotificationsTest', 'listNotifications')
         self.connector.listNotifications(LogLevel.INFO, 0, 33)

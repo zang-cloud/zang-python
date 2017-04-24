@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.conferences_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `SMS/Messages` endpoint
-'''
+"""
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
 
@@ -13,17 +13,17 @@ from zang.domain.list.sms_messages import SmsMessages
 
 
 class SmsMessagesConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `SMS/Messages`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def __init__(self, executor):
         super(SmsMessagesConnector, self).__init__(executor)
 
     def viewSmsMessage(self, smsMessageSid):
-        '''
+        """
         Text messages sent to and from Zang phone numbers are represented with.
 
         :param smsMessageSid:
@@ -32,7 +32,7 @@ class SmsMessagesConnector(BaseConnector):
         :return: An Sms Message resource.
         :rtype: zang.domain.sms_message.SmsMessage
         :raises: ZangException
-        '''
+        """
         smsMessage = self._executor.read(
             ('SMS', 'Messages', smsMessageSid), SmsMessage)
         return smsMessage
@@ -45,7 +45,7 @@ class SmsMessagesConnector(BaseConnector):
             dateSentLt=None,
             page=None,
             pageSize=None):
-        '''
+        """
         Text messages sent to and from Zang phone numbers are represented with.
 
         :param to: (optional) Lists all SMS messages sent to this number.
@@ -65,7 +65,7 @@ class SmsMessagesConnector(BaseConnector):
         :return: A list of SmsMessage resources.
         :rtype: zang.domain.list.sms_messages.SmsMessages
         :raises: ZangException
-        '''
+        """
         queryParams = {
             'To': to,
             'From': from_,
@@ -87,7 +87,7 @@ class SmsMessagesConnector(BaseConnector):
             statusCallback=None,
             statusCallbackMethod=None,
             allowMultiple=None):
-        '''
+        """
         Sends a SMS message.
 
         :param to: Must be an SMS capable number. The value does not have
@@ -113,7 +113,7 @@ class SmsMessagesConnector(BaseConnector):
         :return: The SMS message which was sent.
         :rtype: domain.SmsMessage
         :raises: ZangException
-        '''
+        """
         bodyParams = {
             'To': to,
             'Body': body,

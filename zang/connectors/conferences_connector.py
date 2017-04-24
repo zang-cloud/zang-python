@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.conferences_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `Conferences` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -17,17 +17,17 @@ from zang.domain.participant import Participant
 
 
 class ConferencesConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `Conferences`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def __init__(self, executor):
         super(ConferencesConnector, self).__init__(executor)
 
     def viewConference(self, conferenceSid):
-        '''
+        """
         Shows information about a conference
 
         :param conferenceSid: SID of the conference for which you want to
@@ -37,7 +37,7 @@ class ConferencesConnector(BaseConnector):
         :return: Information about the Conference
         :rtype: zang.domain.conference.Conference
         :raises ZangException:
-        '''
+        """
         conference = self._executor.read(
             ('Conferences', conferenceSid), Conference)
         return conference
@@ -52,7 +52,7 @@ class ConferencesConnector(BaseConnector):
             dateUpdatedLt=None,
             page=None,
             pageSize=None,):
-        '''
+        """
         List conferences associated with an account
 
         :param friendlyName: (optional) Filters conferences by the given
@@ -82,7 +82,7 @@ class ConferencesConnector(BaseConnector):
         :return: List of Conferences
         :rtype: zang.domain.list.conferences.Conferences
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'FriendlyName': friendlyName,
             'Status': status,
@@ -99,7 +99,7 @@ class ConferencesConnector(BaseConnector):
         return conferences
 
     def viewParticipant(self, conferenceSid, participantSid):
-        '''
+        """
         Shows information about a Conference participant
 
         :param conferenceSid: SID of the conference for which you want to
@@ -112,7 +112,7 @@ class ConferencesConnector(BaseConnector):
         :return: Information about the Participant
         :rtype: zang.domain.participant.Participant
         :raises ZangException:
-        '''
+        """
         participant = self._executor.read(
             ('Conferences', conferenceSid, 'Participants', participantSid),
             Participant)
@@ -125,7 +125,7 @@ class ConferencesConnector(BaseConnector):
             deaf=None,
             page=None,
             pageSize=None,):
-        '''
+        """
         List participants in a conference.
 
         :param ConferenceSid: Conference SID.
@@ -147,7 +147,7 @@ class ConferencesConnector(BaseConnector):
         :return: List of participants
         :rtype: zang.domain.list.participants.Participants
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Muted': muted,
             'Deaf': deaf,
@@ -166,7 +166,7 @@ class ConferencesConnector(BaseConnector):
             participantSid,
             muted=None,
             deaf=None,):
-        '''
+        """
         Set status of participant in a conference to muted or deaf
 
         :param conferenceSid: Conference SID
@@ -182,7 +182,7 @@ class ConferencesConnector(BaseConnector):
         :return: The participant in question.
         :rtype: zang.domain.participant.Participant
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'Muted': muted,
             'Deaf': deaf,
@@ -198,7 +198,7 @@ class ConferencesConnector(BaseConnector):
             conferenceSid,
             participantSid,
             audioUrl=None,):
-        '''
+        """
         Plays an audio file to a conference participant
 
         :param conferenceSid: Conference SID
@@ -213,17 +213,18 @@ class ConferencesConnector(BaseConnector):
         :return: The participant in question.
         :rtype: zang.domain.participant.Participant
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'AudioUrl': audioUrl,
         }
         data = flatDict(bodyParams)
         participant = self._executor.update(
-            ('Conferences', conferenceSid, 'Participants', participantSid, 'Play'), Participant, data=data)
+            ('Conferences', conferenceSid, 'Participants', participantSid,
+             'Play'), Participant, data=data)
         return participant
 
     def hangupParticipant(self, conferenceSid, participantSid):
-        '''
+        """
         Hangs up a conference participant.
 
         :param conferenceSid: Conference SID
@@ -235,7 +236,7 @@ class ConferencesConnector(BaseConnector):
         :return: The participant in question.
         :rtype: zang.domain.participant.Participant
         :raises ZangException:
-        '''
+        """
         participant = self._executor.delete(
             ('Conferences', conferenceSid, 'Participants', participantSid,),
             Participant)

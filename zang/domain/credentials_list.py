@@ -22,46 +22,46 @@ class CredentialsList(BaseResource):
 
     @property
     def sid(self):
-        '''An alphanumeric string identifying this resource.'''
+        """An alphanumeric string identifying this resource."""
         return self._sid
 
     @property
     def accountSid(self):
-        '''An alphanumeric string identifying the account associated with this
-        resource.'''
+        """An alphanumeric string identifying the account associated with this
+        resource."""
         return self._account_sid
 
     @property
     def friendlyName(self):
-        '''A human-readable name associated with this domain.'''
+        """A human-readable name associated with this domain."""
         return self._friendly_name
 
     @property
     def uri(self):
-        '''The Uniform Resource Identifier to this resource.'''
+        """The Uniform Resource Identifier to this resource."""
         return self._uri
 
     @property
     def subresourceUris(self):
-        '''URIs for managing this resource.'''
+        """URIs for managing this resource."""
         return self._subresource_uris
 
     @property
     def credentials(self):
-        '''URI for managing credentials on this resource.'''
+        """URI for managing credentials on this resource."""
         return self._credentials
 
     @property
     def dateCreated(self):
-        '''The date this credential list was created.'''
+        """The date this credential list was created."""
         return self._date_created
 
     @property
     def dateUpdated(self):
-        '''The date the credential list was last updated.'''
+        """The date the credential list was last updated."""
         return self._date_updated
 
     @property
     def credentialsCount(self):
-        '''Number of attached credentials.'''
+        """Number of attached credentials."""
         return self._credentials_count

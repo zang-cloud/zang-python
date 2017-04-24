@@ -16,64 +16,64 @@ class TestIncomingPhoneNumbers(unittest.TestCase):
         self.connector = connectorFactory.incomingPhoneNumbersConnector
 
     def test_view_incoming_phone_number(self):
-        TestUtil.start("IncomingPhoneNumbersTest", "viewIncomingPhoneNumber")
+        TestUtil.start('IncomingPhoneNumbersTest', 'viewIncomingPhoneNumber')
         obj = self.connector.viewIncomingPhoneNumber(
             'TestIncomingPhoneNumberSid')
-        assert "http://www.zang.io/ivr/welcome/sms" == obj.smsUrl
+        assert 'http://www.zang.io/ivr/welcome/sms' == obj.smsUrl
 
     def test_list_incoming_phone_numbers(self):
-        TestUtil.start("IncomingPhoneNumbersTest", "listIncomingPhoneNumbers")
-        self.connector.listIncomingPhoneNumbers("123", "MyNumber", 0, 25)
+        TestUtil.start('IncomingPhoneNumbersTest', 'listIncomingPhoneNumbers')
+        self.connector.listIncomingPhoneNumbers('123', 'MyNumber', 0, 25)
 
     def test_purchase_incoming_phone_numbers(self):
         TestUtil.start(
-            "IncomingPhoneNumbersTest", "purchaseIncomingPhoneNumber")
+            'IncomingPhoneNumbersTest', 'purchaseIncomingPhoneNumber')
 
         self.connector.purchaseIncomingPhoneNumber(
-            friendlyName="MyNumber",
-            phoneNumber="+1234",
-            areaCode="123",
+            friendlyName='MyNumber',
+            phoneNumber='+1234',
+            areaCode='123',
             voiceCallerIdLookup=True,
-            voiceApplicationSid="VoiceApplicationSid",
-            smsApplicationSid="SmsApplicationSid",
-            voiceUrl="VoiceUrl",
+            voiceApplicationSid='VoiceApplicationSid',
+            smsApplicationSid='SmsApplicationSid',
+            voiceUrl='VoiceUrl',
             voiceMethod=HttpMethod.GET,
-            voiceFallbackUrl="VoiceFallbackUrl",
+            voiceFallbackUrl='VoiceFallbackUrl',
             voiceFallbackMethod=HttpMethod.GET,
-            smsUrl="SmsUrl",
+            smsUrl='SmsUrl',
             smsMethod=HttpMethod.GET,
-            smsFallbackUrl="SmsFallbackUrl",
+            smsFallbackUrl='SmsFallbackUrl',
             smsFallbackMethod=HttpMethod.POST,
-            heartbeatUrl="HeartbeatUrl",
+            heartbeatUrl='HeartbeatUrl',
             heartbeatMethod=HttpMethod.POST,
-            statusCallback="StatusCallback",
+            statusCallback='StatusCallback',
             statusCallbackMethod=HttpMethod.POST,
-            hangupCallback="HangupCallback",
+            hangupCallback='HangupCallback',
             hangupCallbackMethod=HttpMethod.POST,)
 
     def test_update_incoming_phone_numbers(self):
         TestUtil.start(
-            "IncomingPhoneNumbersTest", "updateIncomingPhoneNumber")
+            'IncomingPhoneNumbersTest', 'updateIncomingPhoneNumber')
         self.connector.updateIncomingPhoneNumber(
-            "TestIncomingPhoneNumberSid",
-            friendlyName="MyNumber",
+            'TestIncomingPhoneNumberSid',
+            friendlyName='MyNumber',
             voiceCallerIdLookup=True,
-            voiceUrl="VoiceUrl",
+            voiceUrl='VoiceUrl',
             voiceMethod=HttpMethod.GET,
-            voiceFallbackUrl="VoiceFallbackUrl",
+            voiceFallbackUrl='VoiceFallbackUrl',
             voiceFallbackMethod=HttpMethod.GET,
-            smsUrl="SmsUrl",
+            smsUrl='SmsUrl',
             smsMethod=HttpMethod.GET,
-            smsFallbackUrl="SmsFallbackUrl",
+            smsFallbackUrl='SmsFallbackUrl',
             smsFallbackMethod=HttpMethod.POST,
-            heartbeatUrl="HeartbeatUrl",
+            heartbeatUrl='HeartbeatUrl',
             heartbeatMethod=HttpMethod.POST,
-            statusCallback="StatusCallback",
+            statusCallback='StatusCallback',
             statusCallbackMethod=HttpMethod.POST,
-            hangupCallback="HangupCallback",
+            hangupCallback='HangupCallback',
             hangupCallbackMethod=HttpMethod.POST),
 
     def test_delete_incoming_phone_numbers(self):
         TestUtil.start(
-            "IncomingPhoneNumbersTest", "deleteIncomingPhoneNumber")
-        self.connector.deleteIncomingPhoneNumber("TestIncomingPhoneNumberSid")
+            'IncomingPhoneNumbersTest', 'deleteIncomingPhoneNumber')
+        self.connector.deleteIncomingPhoneNumber('TestIncomingPhoneNumberSid')

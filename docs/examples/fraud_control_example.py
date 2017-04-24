@@ -3,7 +3,7 @@ from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
@@ -23,7 +23,7 @@ except ZangException as ze:
 
 # block destination
 try:
-    rule = fraudControlConnector.blockDestination("HR", False, True, False)
+    rule = fraudControlConnector.blockDestination('HR', False, True, False)
     print(rule.countryPrefix)
 except ZangException as ze:
     print(ze)
@@ -31,7 +31,7 @@ except ZangException as ze:
 
 # authorize destination
 try:
-    rule = fraudControlConnector.authorizeDestination("HR", False, True, False)
+    rule = fraudControlConnector.authorizeDestination('HR', False, True, False)
     print(rule.countryPrefix)
 except ZangException as ze:
     print(ze)
@@ -39,7 +39,7 @@ except ZangException as ze:
 
 # extend destination
 try:
-    rule = fraudControlConnector.extendDestinationAuthorization("HR")
+    rule = fraudControlConnector.extendDestinationAuthorization('HR')
     print(rule.expirationDate)
 except ZangException as ze:
     print(ze)
@@ -47,7 +47,7 @@ except ZangException as ze:
 
 # whitelist destination
 try:
-    rule = fraudControlConnector.whitelistDestination("HR", False, True, False)
+    rule = fraudControlConnector.whitelistDestination('HR', False, True, False)
     print(rule.countryPrefix)
 except ZangException as ze:
     print(ze)

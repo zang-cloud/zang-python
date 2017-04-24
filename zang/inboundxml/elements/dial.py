@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.inboundxml.elements.dial
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Dial` inbound xml element
-'''
+"""
 
 from zang.inboundxml.elements.base_node import BaseNode
 from zang.inboundxml.elements.number import Number
@@ -93,7 +93,7 @@ class Dial(BaseNode):
         if isinstance(element, type(self)._allowedContentClass):
             self._content.append(element)
         else:
-            raise TypeError("Element not allowed for content model")
+            raise TypeError('Element not allowed for content model')
 
     def removeElementAtIndex(self, index):
         del self._content[index]

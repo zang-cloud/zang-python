@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.fraud_control_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `FraudControlConnector` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -14,11 +14,11 @@ from zang.domain.fraud_control_rule_elements import FraudControlRuleElements
 
 
 class FraudControlConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `FraudControlConnector`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def blockDestination(
             self,
@@ -26,7 +26,7 @@ class FraudControlConnector(BaseConnector):
             mobileEnabled=None,
             landlineEnabled=None,
             smsEnabled=None,):
-        '''
+        """
         Restricts outbound calls and sms messages to some destination.
 
         :param countryCode:Country code.
@@ -48,7 +48,7 @@ class FraudControlConnector(BaseConnector):
         :return: `FraudControlRuleElement` object
         :rtype: zang.domain.fraud_control_rule_element.FraudControlRuleElement
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'MobileEnabled': mobileEnabled,
             'LandlineEnabled': landlineEnabled,
@@ -65,7 +65,7 @@ class FraudControlConnector(BaseConnector):
             mobileEnabled=None,
             landlineEnabled=None,
             smsEnabled=None,):
-        '''
+        """
         Authorizes previously blocked destination for outbound calls and sms
         messages.
 
@@ -88,7 +88,7 @@ class FraudControlConnector(BaseConnector):
         :return: `FraudControlRuleElement` object
         :rtype: zang.domain.fraud_control_rule_element.FraudControlRuleElement
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'MobileEnabled': mobileEnabled,
             'LandlineEnabled': landlineEnabled,
@@ -106,7 +106,7 @@ class FraudControlConnector(BaseConnector):
             mobileEnabled=None,
             landlineEnabled=None,
             smsEnabled=None,):
-        '''
+        """
         Permanently authorizes destination that may have been blocked by our
         automated fraud detection system
 
@@ -129,7 +129,7 @@ class FraudControlConnector(BaseConnector):
         :return: `FraudControlRuleElement` object
         :rtype: zang.domain.fraud_control_rule_element.FraudControlRuleElement
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'MobileEnabled': mobileEnabled,
             'LandlineEnabled': landlineEnabled,
@@ -141,7 +141,7 @@ class FraudControlConnector(BaseConnector):
         return fraudControlRuleElement.whitelisted
 
     def extendDestinationAuthorization(self, countryCode):
-        '''
+        """
         Extends a destinations authorization expiration by 30 days
 
         :param countryCode:Country code.
@@ -150,13 +150,13 @@ class FraudControlConnector(BaseConnector):
         :return: `FraudControlRuleElement` object
         :rtype: zang.domain.fraud_control_rule_element.FraudControlRuleElement
         :raises ZangException:
-        '''
+        """
         fraudControlRuleElement = self._executor.update(
             ('Fraud', 'Extend', countryCode), FraudControlRuleElement)
         return fraudControlRuleElement.authorized
 
     def listFraudControlResources(self, page=None, pageSize=None):
-        '''
+        """
         Shows information on all fraud control resources associated with some
         account.
 
@@ -172,7 +172,7 @@ class FraudControlConnector(BaseConnector):
         :rtype: zang.domain.fraud_control_rule_elements.
             FraudControlRuleElements
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Page': page,
             'PageSize': pageSize,

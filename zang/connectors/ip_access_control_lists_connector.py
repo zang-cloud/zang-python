@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.connectors.ip_access_control_lists_connector
 ~~~~~~~~~~~~~~~~~~~
 Module for communication with `IpAccessControlLists` endpoint
-'''
+"""
 
 from zang.connectors.base_connector import BaseConnector
 from zang.helpers.helpers import flatDict
@@ -17,14 +17,14 @@ from zang.domain.list.ip_addresses import IpAddresses
 
 
 class IpAccessControlListsConnector(BaseConnector):
-    '''
+    """
     Used for all forms of communication with the `IpAccessControlLists`
     endpoint of the Zang REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
-    '''
+    """
 
     def viewIpAcl(self, ipAccessControlListSid):
-        '''
+        """
         View information for IP access control list
 
         :param ipAccessControlListSid: IP access control list SID.
@@ -33,14 +33,14 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAccessControlList` object
         :rtype: zang.domain.ip_access_control_list.IpAccessControlList
         :raises ZangException:
-        '''
+        """
         ipAccessControlList = self._executor.read(
             ('SIP', 'IpAccessControlLists', ipAccessControlListSid),
             IpAccessControlList)
         return ipAccessControlList
 
     def listIpAcls(self, page=None, pageSize=None):
-        '''
+        """
         List all IP access control lists associated with a particular account.
 
         :param page: (optional) Used to return a particular page within the
@@ -54,7 +54,7 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAccessControlLists` object
         :rtype: zang.domain.list.ip_access_control_lists.IpAccessControlLists
         :raises ZangException:
-        '''
+        """
         queryParams = {
             'Page': page,
             'PageSize': pageSize,
@@ -65,7 +65,7 @@ class IpAccessControlListsConnector(BaseConnector):
         return ipAccessControlLists
 
     def createIpAcl(self, friendlyName):
-        '''
+        """
         Create IP access control list
 
         :param friendlyName: A human-readable name associated with this IP ACL.
@@ -74,7 +74,7 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAccessControlList` object
         :rtype: zang.domain.ip_access_control_list.IpAccessControlList
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
         }
@@ -84,7 +84,7 @@ class IpAccessControlListsConnector(BaseConnector):
         return ipAccessControlList
 
     def updateIpAcl(self, ipAccessControlListSid, friendlyName):
-        '''
+        """
         Updates information for IP access control list
 
         :param ipAccessControlListSid: IP access control list SID.
@@ -96,7 +96,7 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAccessControlList` object
         :rtype: zang.domain.ip_access_control_list.IpAccessControlList
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
         }
@@ -107,7 +107,7 @@ class IpAccessControlListsConnector(BaseConnector):
         return ipAccessControlList
 
     def deleteIpAcl(self, ipAccessControlListSid):
-        '''
+        """
         Deletes IP access control list
 
         :param ipAccessControlListSid: IP access control list SID.
@@ -116,14 +116,14 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAccessControlList` object
         :rtype: zang.domain.ip_access_control_list.IpAccessControlList
         :raises ZangException:
-        '''
+        """
         ipAccessControlList = self._executor.delete(
             ('SIP', 'IpAccessControlLists', ipAccessControlListSid),
             IpAccessControlList)
         return ipAccessControlList
 
     def viewAclIp(self, aclSid, ipSid):
-        '''
+        """
         View information on IP access control list IP address.
 
         :param aclSid: IP access control list SID.
@@ -135,14 +135,14 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAddress` object
         :rtype: zang.domain.ip_address.IpAddress
         :raises ZangException:
-        '''
+        """
         ipAddress = self._executor.read(
             ('SIP', 'IpAccessControlLists', aclSid, 'IpAddresses', ipSid),
             IpAddress)
         return ipAddress
 
     def listAclIps(self, aclSid):
-        '''
+        """
         Lists IP addresses attached to some IP access control list.
 
         :param aclSid: IP access control list SID.
@@ -151,14 +151,14 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAddresses` object
         :rtype: zang.domain.list.ip_addresses.IpAddresses
         :raises ZangException:
-        '''
+        """
         ipAddresses = self._executor.read(
             ('SIP', 'IpAccessControlLists', aclSid, 'IpAddresses'),
             IpAddresses)
         return ipAddresses
 
     def addAclIp(self, aclSid, friendlyName=None, ipAddress=None):
-        '''
+        """
         Add new IP for access control lis
 
         :param aclSid: IP access control list SID.
@@ -173,7 +173,7 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAddress` object
         :rtype: zang.domain.ip_address.IpAddress
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
             'IpAddress': ipAddress,
@@ -185,7 +185,7 @@ class IpAccessControlListsConnector(BaseConnector):
         return ipAddress
 
     def updateAclIp(self, aclSid, ipSid, friendlyName=None, ipAddress=None):
-        '''
+        """
         Updates IP address for IP access control list
 
         :param aclSid: IP access control list SID.
@@ -202,7 +202,7 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAddress` object
         :rtype: zang.domain.ip_address.IpAddress
         :raises ZangException:
-        '''
+        """
         bodyParams = {
             'FriendlyName': friendlyName,
             'IpAddress': ipAddress,
@@ -214,7 +214,7 @@ class IpAccessControlListsConnector(BaseConnector):
         return ipAddress
 
     def deleteAclIp(self, aclSid, ipSid):
-        '''
+        """
         Deletes IP address from IP access control list.
 
         :param aclSid: IP access control list SID.
@@ -226,7 +226,7 @@ class IpAccessControlListsConnector(BaseConnector):
         :return: `IpAddress` object
         :rtype: zang.domain.ip_address.IpAddress
         :raises ZangException:
-        '''
+        """
         ipAddress = self._executor.delete(
             ('SIP', 'IpAccessControlLists', aclSid, 'IpAddresses', ipSid),
             IpAddress)

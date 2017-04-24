@@ -7,7 +7,7 @@ from zang.domain.enums.recording_file_format import RecordingFileFormat
 from zang.domain.enums.transcribe_quality import TranscribeQuality
 
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
@@ -16,7 +16,7 @@ recordingsConnector = ConnectorFactory(configuration).recordingsConnector
 
 # view recording
 try:
-    recording = recordingsConnector.viewRecording("TestRecordingSid")
+    recording = recordingsConnector.viewRecording('TestRecordingSid')
     print(recording.duration)
 except ZangException as ze:
     print(ze)
@@ -33,16 +33,16 @@ except ZangException as ze:
 # record call
 try:
     recording = recordingsConnector.recordCall(
-        callSid="TestCallSid",
+        callSid='TestCallSid',
         record=True,
         direction=RecordingAudioDirection.OUT,
         timeLimit=1337,
-        callbackUrl="CallbackUrl",
+        callbackUrl='CallbackUrl',
         fileFormat=RecordingFileFormat.WAV,
         trimSilence=True,
         transcribe=True,
         transcriptionQuality=TranscribeQuality.HYBRID,
-        transcribeCallback="TranscribeCallback"),
+        transcribeCallback='TranscribeCallback'),
     print(recording.total)
 except ZangException as ze:
     print(ze)
@@ -50,7 +50,7 @@ except ZangException as ze:
 
 # delete recording
 try:
-    recording = recordingsConnector.deleteRecording("TestRecordingSid")
+    recording = recordingsConnector.deleteRecording('TestRecordingSid')
     print(recording.price)
 except ZangException as ze:
     print(ze)

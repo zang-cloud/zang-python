@@ -22,37 +22,37 @@ class TestConferences(unittest.TestCase):
     def test_view_participant(self):
         TestUtil.start('ConferencesTest', 'viewParticipant')
         participant = self.connector.viewParticipant(
-            "TestConferenceSid", "TestParticipantSid")
+            'TestConferenceSid', 'TestParticipantSid')
         self.checkParticipant(participant)
 
     def test_mute_participant(self):
         TestUtil.start('ConferencesTest', 'muteDeafParticipant')
         participant = self.connector.deafOrMuteParticipant(
-            "TestConferenceSid", "TestParticipantSid", True, True)
+            'TestConferenceSid', 'TestParticipantSid', True, True)
         self.checkParticipant(participant)
 
     def test_play_audio_to_participant(self):
         TestUtil.start('ConferencesTest', 'playAudioToParticipant')
         participant = self.connector.playAudioToParticipant(
-            "TestConferenceSid", "TestParticipantSid",
-            "http://mydomain.com/audio.mp3")
+            'TestConferenceSid', 'TestParticipantSid',
+            'http://mydomain.com/audio.mp3')
         self.checkParticipant(participant)
 
     def test_hangup_participant(self):
         TestUtil.start('ConferencesTest', 'hangupParticipant')
         participant = self.connector.hangupParticipant(
-            "TestConferenceSid", "TestParticipantSid")
+            'TestConferenceSid', 'TestParticipantSid')
         self.checkParticipant(participant)
 
     def tearDown(self):
         pass
 
     def checkConference(self, conference):
-        assert conference.sid == "TestConferenceSid"
-        assert conference.friendlyName == "TestConference"
+        assert conference.sid == 'TestConferenceSid'
+        assert conference.friendlyName == 'TestConference'
         assert conference.status == ConferenceStatus.COMPLETED
 
     def checkParticipant(self, participant):
-        assert participant.sid == "TestParticipantSid"
-        assert participant.conferenceSid == "TestConferenceSid"
+        assert participant.sid == 'TestParticipantSid'
+        assert participant.conferenceSid == 'TestConferenceSid'
         assert not participant.muted

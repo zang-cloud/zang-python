@@ -18,11 +18,11 @@ class TestSip(unittest.TestCase):
         assert sip.xml == expected
 
     def test_init_with_unsupported_attributes(self):
-        '''sip has no attribute foo'''
+        """sip has no attribute foo"""
         self.assertRaises(TypeError, lambda: Sip(self.address, foo='bar'))
 
     def test_with_update_attributes(self):
-        '''test updating address and attributes'''
+        """test updating address and attributes"""
         sip = Sip(self.address)
         newAddress = 'newusername@domain.com'
         sip.address = newAddress
@@ -31,12 +31,12 @@ class TestSip(unittest.TestCase):
         assert sip.xml == expected
 
     def test_udefinded_method_with_primitive_type(self):
-        '''test calling undefined method'''
+        """test calling undefined method"""
         self.assertRaises(
             AttributeError, lambda: Sip(self.address).addElement('bar'))
 
     def test_udefinded_method_with_base_node(self):
-        '''test calling undefined method'''
+        """test calling undefined method"""
         self.assertRaises(
             AttributeError, lambda: Sip(self.address).addElement(BaseNode()))
 

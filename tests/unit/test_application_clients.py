@@ -16,27 +16,27 @@ class TestApplicationClients(unittest.TestCase):
         self.connector = connectorFactory.applicationClientsConnector
 
     def test_view_application_client(self):
-        TestUtil.start("ApplicationClientsTest", "viewApplicationClient")
+        TestUtil.start('ApplicationClientsTest', 'viewApplicationClient')
         applicationClient = self.connector.viewApplicationClient(
-            "TestApplicationSid", "TestApplicationClientSid")
+            'TestApplicationSid', 'TestApplicationClientSid')
         self.check_application_client(applicationClient)
 
     def test_list_application_client(self):
-        TestUtil.start("ApplicationClientsTest", "listApplicationClients")
+        TestUtil.start('ApplicationClientsTest', 'listApplicationClients')
         applicationClients = self.connector.listApplicationClients(
-            "TestApplicationSid")
+            'TestApplicationSid')
         assert len(applicationClients.elements) == 1
         applicationClient = applicationClients.elements[0]
         self.check_application_client(applicationClient)
 
     def test_create_application_client(self):
-        TestUtil.start("ApplicationClientsTest", "createApplicationClient")
+        TestUtil.start('ApplicationClientsTest', 'createApplicationClient')
         applicationClient = self.connector.createApplicationClient(
-            "TestApplicationSid", "MyApplicationClient")
+            'TestApplicationSid', 'MyApplicationClient')
         self.check_application_client(applicationClient)
 
     def check_application_client(self, applicationClient):
-        assert applicationClient.sid == "TestApplicationClientSid"
-        assert applicationClient.nickname == "MyApplicationClient"
-        assert applicationClient.remoteIp == "10.0.0.1"
+        assert applicationClient.sid == 'TestApplicationClientSid'
+        assert applicationClient.nickname == 'MyApplicationClient'
+        assert applicationClient.remoteIp == '10.0.0.1'
         assert applicationClient.presenceStatus == PresenceStatus.INIT

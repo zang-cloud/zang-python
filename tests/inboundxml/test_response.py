@@ -2,12 +2,13 @@ import unittest
 from zang.inboundxml.elements.response import Response
 from zang.inboundxml.elements.dial import Dial
 from zang.inboundxml.elements.say import Say
+from zang.inboundxml.elements.constants import XML_DECLARATION
 
 
 class TestResponse(unittest.TestCase):
 
     def test_init_with_required_values(self):
-        expected = '<Response></Response>'
+        expected = XML_DECLARATION + '<Response></Response>'
         assert Response().xml == expected
 
     def test_init_add_element(self):
@@ -18,7 +19,8 @@ class TestResponse(unittest.TestCase):
         response = Response()
         response.addElement(dial)
         response.addElement(say)
-        expected = '<Response><Dial>%s</Dial><Say>%s</Say></Response>' \
+        expected = XML_DECLARATION + \
+            '<Response><Dial>%s</Dial><Say>%s</Say></Response>' \
             % (number, text)
         assert response.xml == expected
 
@@ -27,10 +29,12 @@ class TestResponse(unittest.TestCase):
         say = Say(text)
         response = Response()
         response.addElement(say)
-        expected = '<Response><Say>%s</Say></Response>' % text
+
+        expected = XML_DECLARATION + \
+            '<Response><Say>%s</Say></Response>' % text
         assert response.xml == expected
         response.removeElementAtIndex(0)
-        expected = '<Response></Response>'
+        expected = XML_DECLARATION + '<Response></Response>'
         assert response.xml == expected
 
     def test_remove_element_at_out_of_range_index(self):

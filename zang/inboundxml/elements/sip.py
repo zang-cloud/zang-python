@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.inboundxml.elements.sip
 ~~~~~~~~~~~~~~~~~~~
 Module containing `Sip` inbound xml element
-'''
+"""
 
 from zang.inboundxml.elements.base_node import BaseNode
 

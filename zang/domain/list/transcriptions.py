@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.domain.list.transcriptions
 ~~~~~~~~~~~~~~~~~~~
 `Transcriptions` model
-'''
+"""
 
 from zang.domain.list.base_list import BaseList
 from zang.domain.transcription import Transcription

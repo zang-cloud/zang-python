@@ -3,7 +3,7 @@ from zang.exceptions.zang_exception import ZangException
 from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
-from tests.examples.credetnials import sid, authToken
+from docs.examples.credetnials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
@@ -13,7 +13,7 @@ carrierServicesConnector = ConnectorFactory(
 
 # carrier lookup
 try:
-    data = carrierServicesConnector.viewCarrierLookup("+1234")
+    data = carrierServicesConnector.viewCarrierLookup('+1234')
     print(data.network)
 except ZangException as ze:
     print(ze)
@@ -27,7 +27,7 @@ except ZangException as ze:
 
 # cnam lookup
 try:
-    data = carrierServicesConnector.cnamLookup("+1234")
+    data = carrierServicesConnector.cnamLookup('+1234')
     print(data.phoneNumber)
 except ZangException as ze:
     print(ze)
@@ -41,7 +41,7 @@ except ZangException as ze:
 
 # bna lookup
 try:
-    data = carrierServicesConnector.bnaLookup("+1234")
+    data = carrierServicesConnector.bnaLookup('+1234')
     print(data.phoneNumber)
 except ZangException as ze:
     print(ze)

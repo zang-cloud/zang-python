@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-'''
+"""
 zang.helpers
 ~~~~~~~~~~~~~~
 This module contians the helpers.
-'''
+"""
 
 import sys
 from enum import Enum
@@ -17,7 +17,7 @@ if sys.version_info > (3, 0):
 
 
 def is_collection(obj):
-    '''Tests if an object is a collection.'''
+    """Tests if an object is a collection."""
 
     col = getattr(obj, '__getitem__', False)
     val = False if (not col) else True
@@ -42,7 +42,7 @@ def to_python(
         dict_keys=None,
         enums=None,
         **kwargs):
-    '''Extends a given object for API Consumption.
+    """Extends a given object for API Consumption.
     :param obj: Object to extend.
     :param in_dict: Dict to extract data from.
     :param string_keys: List of in_dict keys that will be extracted as strings.
@@ -53,7 +53,7 @@ def to_python(
     :param dict_keys: Dict of {key, obj} map, for nested object results.
     :param enums: Dict of {key, `Enum`} map, that will be extracted as `Enum`
 
-    '''
+    """
 
     d = dict()
 
@@ -102,7 +102,7 @@ def to_python(
                 private_name = '_' + in_key
                 value = in_dict.get(in_key)
                 if isinstance(value, basestring):
-                    value = value.lower() == "true"
+                    value = value.lower() == 'true'
                 d[private_name] = value
 
     # ENUMS
@@ -154,7 +154,7 @@ def to_python(
 
 # from kennethreitz/python-github3
 def to_api(in_dict, int_keys=None, date_keys=None, bool_keys=None):
-    '''Extends a given object for API Production.'''
+    """Extends a given object for API Production."""
 
     # Cast all int_keys to int()
     if int_keys:
@@ -189,7 +189,7 @@ def to_api(in_dict, int_keys=None, date_keys=None, bool_keys=None):
 
 
 def flatDict(dict_):
-    '''
+    """
     Returns a dictionary containing the non-none elements.
 
     :param dict_: Dictionary containing elements with `None` as value
@@ -197,7 +197,7 @@ def flatDict(dict_):
 
     :return: Dictionary without non-none elements
     :rtype: dict
-    '''
+    """
     dict__ = {}
     for key in dict_.keys():
         value = dict_[key]
