@@ -8,7 +8,7 @@ and SMS to applications fun and easy.
 For more information about Zang, please visit: 
 `Zang Cloud <https://www.zang.io/products/cloud>`_
 
-To read the official documentation visit `Zang Docs <http://docs.zang.io>`_.
+To read the official documentation, please visit: `Zang Docs <http://docs.zang.io/aspx/docs>`_.
 
 
 Installation
@@ -30,7 +30,7 @@ Usage
 REST
 ----
 
-See the `Zang REST API documentation <http://docs.zang.io/docs/overview>`_
+See the `Zang REST API documentation <http://docs.zang.io/aspx/rest>`_
 for more information.
 
 Send SMS Example
@@ -147,7 +147,7 @@ InboundXML
 
 InboundXML is an XML dialect which enables you to control phone call flow.
 For more information please visit the `Zang InboundXML documentation
-<http://docs.zang.io/docs/inboundxml-overview>`_.
+<http://docs.zang.io/aspx/inboundxml>`_.
 
 <Say> Example
 -------------
