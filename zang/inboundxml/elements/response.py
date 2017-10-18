@@ -14,6 +14,7 @@ from zang.inboundxml.elements.pause import Pause
 from zang.inboundxml.elements.redirect import Redirect
 from zang.inboundxml.elements.ping import Ping
 from zang.inboundxml.elements.sms import Sms
+from zang.inboundxml.elements.mms import Mms
 from zang.inboundxml.elements.play_last_recording import PlayLastRecording
 from zang.inboundxml.elements.reject import Reject
 from zang.inboundxml.elements.dial import Dial
@@ -32,6 +33,7 @@ class Response(BaseNode):
         Redirect,
         Ping,
         Sms,
+        Mms,
         PlayLastRecording,
         Reject,
         Dial,

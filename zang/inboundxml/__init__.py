@@ -5,6 +5,7 @@ from .elements.conference import Conference  # NOQA
 from .elements.dial import Dial  # NOQA
 from .elements.gather import Gather  # NOQA
 from .elements.hangup import Hangup  # NOQA
+from .elements.mms import Mms  # NOQA
 from .elements.number import Number  # NOQA
 from .elements.pause import Pause  # NOQA
 from .elements.ping import Ping  # NOQA
@@ -33,6 +34,7 @@ __all__ = [
     'Dial',
     'Gather',
     'Hangup',
+    'Mms',
     'Number',
     'Pause',
     'Ping',

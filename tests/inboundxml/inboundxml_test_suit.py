@@ -10,6 +10,7 @@ from tests.inboundxml.test_play import TestPlay
 from tests.inboundxml.test_play_last_recording import TestPlayLastRecording
 from tests.inboundxml.test_redirect import TestRedirect
 from tests.inboundxml.test_say import TestSay
+from tests.inboundxml.test_mms import TestMms
 from tests.inboundxml.test_sms import TestSms
 from tests.inboundxml.test_record import TestRecord
 from tests.inboundxml.test_gather import TestGather
@@ -26,6 +27,7 @@ def suite():
     test_suite.addTest(unittest.makeSuite(TestDial))
     test_suite.addTest(unittest.makeSuite(TestGather))
     test_suite.addTest(unittest.makeSuite(TestSms))
+    test_suite.addTest(unittest.makeSuite(TestMms))
     test_suite.addTest(unittest.makeSuite(TestRecord))
     test_suite.addTest(unittest.makeSuite(TestSay))
     test_suite.addTest(unittest.makeSuite(TestRedirect))
