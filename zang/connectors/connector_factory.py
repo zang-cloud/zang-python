@@ -2,6 +2,7 @@ from zang.http.executor import Executor
 from zang.connectors.accounts_connector import AccountsConnector
 from zang.connectors.applications_connector import ApplicationsConnector
 from zang.connectors.sms_messages_connector import SmsMessagesConnector
+from zang.connectors.mms_messages_connector import MmsMessagesConnector
 from zang.connectors.calls_connector import CallsConnector
 from zang.connectors.usages_connector import UsagesConnector
 from zang.connectors.conferences_connector import ConferencesConnector
@@ -39,6 +40,10 @@ class ConnectorFactory(object):
     @property
     def smsMessagesConnector(self):
         return SmsMessagesConnector(self.executor)
+
+    @property
+    def mmsMessagesConnector(self):
+        return MmsMessagesConnector(self.executor)
 
     @property
     def callsConnector(self):

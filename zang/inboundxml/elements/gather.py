@@ -10,6 +10,7 @@ from zang.inboundxml.elements.base_node import BaseNode
 from zang.inboundxml.elements.say import Say
 from zang.inboundxml.elements.play import Play
 from zang.inboundxml.elements.pause import Pause
+from zang.inboundxml.elements.enums.gather_input import GatherInput
 
 
 class Gather(BaseNode):
@@ -26,12 +27,18 @@ class Gather(BaseNode):
             method=None,
             timeout=None,
             finishOnKey=None,
-            numDigits=None):
+            numDigits=None,
+            input=GatherInput.DTMF,
+            hints=None,
+            language=None):
         self.action = action
         self.method = method
         self.timeout = timeout
         self.finishOnKey = finishOnKey
         self.numDigits = numDigits
+        self.input = input
+        self.hints = hints
+        self.language = language
         self._value = None
         self._content = []
 

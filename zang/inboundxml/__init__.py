@@ -5,6 +5,7 @@ from .elements.conference import Conference  # NOQA
 from .elements.dial import Dial  # NOQA
 from .elements.gather import Gather  # NOQA
 from .elements.hangup import Hangup  # NOQA
+from .elements.mms import Mms  # NOQA
 from .elements.number import Number  # NOQA
 from .elements.pause import Pause  # NOQA
 from .elements.ping import Ping  # NOQA
@@ -19,6 +20,8 @@ from .elements.sip import Sip  # NOQA
 from .elements.sms import Sms  # NOQA
 from .elements.user import User  # NOQA
 
+from .elements.enums.gather_input import GatherInput # NOQA
+from .elements.enums.bcp_language import BCPLanguage  # NOQA
 from .elements.enums.language import Language  # NOQA
 from .elements.enums.record_direction import RecordDirection  # NOQA
 from .elements.enums.reject_reason import RejectReason  # NOQA
@@ -31,6 +34,7 @@ __all__ = [
     'Dial',
     'Gather',
     'Hangup',
+    'Mms',
     'Number',
     'Pause',
     'Ping',

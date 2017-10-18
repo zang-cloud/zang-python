@@ -66,6 +66,8 @@ class Executor(object):
         """Makes an HTTP request."""
 
         headers = self._headers()
+        if method == 'POST':
+            headers.update({'Content-Type': 'application/x-www-form-urlencoded'})
         # print('url', url)
         # print('data', data)
         # print('params', params)
