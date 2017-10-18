@@ -3,6 +3,7 @@ from tests.unit.test_account import TestAccount
 from tests.unit.test_application import TestApplication
 from tests.unit.test_usages import TestUsages
 from tests.unit.test_conferences import TestConferences
+from tests.unit.test_mms_messages import TestMmsMessages
 from tests.unit.test_sms_messages import TestSmsMessages
 from tests.unit.test_calls import TestCalls
 from tests.unit.test_transcriptions import TestTranscriptions
@@ -35,6 +36,7 @@ def suite():
     test_suite.addTest(unittest.makeSuite(TestSipDomain))
     test_suite.addTest(unittest.makeSuite(TestTranscriptions))
     test_suite.addTest(unittest.makeSuite(TestCalls))
+    test_suite.addTest(unittest.makeSuite(TestMmsMessages))
     test_suite.addTest(unittest.makeSuite(TestSmsMessages))
     test_suite.addTest(unittest.makeSuite(TestConferences))
     test_suite.addTest(unittest.makeSuite(TestUsages))

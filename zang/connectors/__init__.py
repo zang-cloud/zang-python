@@ -14,6 +14,7 @@ from .incoming_phone_numbers_connector import \
     IncomingPhoneNumbersConnector  # NOQA
 from .ip_access_control_lists_connector import \
     IpAccessControlListsConnector  # NOQA
+from .mms_messages_connector import MmsMessagesConnector  # NOQA
 from .notifications_connector import NotificationsConnector  # NOQA
 from .recordings_connector import RecordingsConnector  # NOQA
 from .sip_credentials_connector import SipCredentialsConnector  # NOQA
@@ -34,6 +35,7 @@ __all__ = [
     'FraudControlConnector',
     'IncomingPhoneNumbersConnector',
     'IpAccessControlListsConnector',
+    'MmsMessagesConnector',
     'NotificationsConnector',
     'RecordingsConnector',
     'SipCredentialsConnector',

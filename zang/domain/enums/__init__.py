@@ -11,6 +11,8 @@ from .end_call_status import EndCallStatus  # NOQA
 from .http_method import HttpMethod  # NOQA
 from .if_machine import IfMachine  # NOQA
 from .log_level import LogLevel  # NOQA
+from .mms_direction import MmsDirection  # NOQA
+from .mms_message_status import MmsMessageStatus  # NOQA
 from .phone_number_type import PhoneNumberType  # NOQA
 from .presence_status import PresenceStatus  # NOQA
 from .product import Product  # NOQA
@@ -33,6 +35,8 @@ __all__ = [
     'HttpMethod',
     'IfMachine',
     'LogLevel',
+    'MmsDirection',
+    'MmsMessageStatus',
     'PhoneNumberType',
     'PresenceStatus',
     'Product',

@@ -1522,6 +1522,40 @@
       "response": "/sipdomains/ipacl.json"
     }
   },
+  "MmsTest": {
+    "sendMms": {
+      "method": "POST",
+      "path": "MMS/Messages.json",
+      "bodyParams": [
+        {
+          "name": "To",
+          "value": "+123456"
+        },
+        {
+          "name": "MediaUrl",
+          "value": "https://media.giphy.com/media/zZJzLrxmx5ZFS/giphy.gif"
+        },
+        {
+          "name": "From",
+          "value": "+654321"
+        },
+        {
+          "name": "Body",
+          "value": "This is MMS sent from Zang"
+        },
+        {
+          "name": "StatusCallbackMethod",
+          "value": "GET"
+        },
+        {
+          "name": "StatusCallback",
+          "value": "callback.url"
+        }
+      ],
+      "queryParams": null,
+      "response": "/mms/mms.json"
+    }
+  },
   "SmsTest": {
     "viewSms": {
       "method": "GET",
