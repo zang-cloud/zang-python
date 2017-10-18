@@ -19,6 +19,8 @@ from .elements.sip import Sip  # NOQA
 from .elements.sms import Sms  # NOQA
 from .elements.user import User  # NOQA
 
+from .elements.enums.gather_input import GatherInput # NOQA
+from .elements.enums.bcp_language import BCPLanguage  # NOQA
 from .elements.enums.language import Language  # NOQA
 from .elements.enums.record_direction import RecordDirection  # NOQA
 from .elements.enums.reject_reason import RejectReason  # NOQA

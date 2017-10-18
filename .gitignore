@@ -12,6 +12,7 @@
 .coverage
 .idea/
 .tox/
+.vscode/
 _build/
 build/
 dist/
