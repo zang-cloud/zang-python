@@ -4,7 +4,7 @@ from zang.exceptions.zang_exception import ZangException
 from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
-from docs.examples.credetnials import sid, authToken
+from docs.examples.credentials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 
