@@ -14,7 +14,7 @@ from zang.domain.enums.transcribe_quality import TranscribeQuality
 
 from zang.exceptions.zang_exception import ZangException
 
-from docs.examples.credetnials import sid, authToken
+from docs.examples.credentials import sid, authToken
 url = 'http://api.zang.io/v2'
 
 
