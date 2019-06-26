@@ -1,8 +1,8 @@
 try:
-    import BaseHTTPServer
-    import thread
-    from urlparse import parse_qs
-    from urllib import urlencode
+    import http.server
+    import _thread
+    from urllib.parse import parse_qs
+    from urllib.parse import urlencode
 except ImportError:
     import http.server as BaseHTTPServer
     import _thread as thread
@@ -60,7 +60,7 @@ class Expectation(object):
         return paramsUrlEncoded
 
 
-class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+class MockHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._process()
@@ -116,7 +116,7 @@ class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             dict0 = parse_qs(params0)
             dict1 = parse_qs(params1)
             for param in dict0:
-                if param not in dict0.keys():
+                if param not in list(dict0.keys()):
                     return False
                 val0 = dict1[param][0]
                 val1 = dict0[param][0]
@@ -143,7 +143,7 @@ class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
             neadle = 'content-length'
 
         if (not hasattr(self, '_bodyParams') and
-                neadle in self.headers.keys()):
+                neadle in list(self.headers.keys())):
             if sys.version_info >= (3, 0):
                 contentLen = int(self.headers['Content-Length'])
             else:
@@ -165,12 +165,12 @@ class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         return None if len(url) != 2 else url[1]
 
 
-class MockHTTPServer(BaseHTTPServer.HTTPServer):
+class MockHTTPServer(http.server.HTTPServer):
 
     def __init__(self, expectation, *args, **kw):
-        BaseHTTPServer.HTTPServer.__init__(self, *args, **kw)
+        http.server.HTTPServer.__init__(self, *args, **kw)
         self.expectation = expectation
-        thread.start_new_thread(self.handle_request, ())
+        _thread.start_new_thread(self.handle_request, ())
 
 
 class TestUtil(object):

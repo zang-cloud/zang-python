@@ -10,7 +10,7 @@ import sys
 from enum import Enum
 
 if sys.version_info > (3, 0):
-    basestring = (str, bytes)
+    str_classes = (str, bytes)
 
 
 class BaseNode(object):
@@ -26,7 +26,7 @@ class BaseNode(object):
         :rtype: dict
         """
         attributes_ = {}
-        for attribute in vars(self).keys():
+        for attribute in list(vars(self).keys()):
             value = vars(self)[attribute]
             if (value is not None and attribute != '_content' and
                     attribute != '_value'):
@@ -63,7 +63,7 @@ class BaseNode(object):
         :rtype: str
         """
         s = '<' + className
-        for attribute in attributes_.keys():
+        for attribute in list(attributes_.keys()):
             value = attributes_[attribute]
             if attribute == 'from_':
                 attribute = 'from'
@@ -83,7 +83,7 @@ class BaseNode(object):
         s = ''
         if content is not None:
             for child in content:
-                s += child if isinstance(child, basestring) else child.xml
+                s += child if isinstance(child, str_classes) else child.xml
 
         if value is not None:
             s += str(value)

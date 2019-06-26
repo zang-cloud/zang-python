@@ -10,13 +10,13 @@ from zang.inboundxml.elements.base_node import BaseNode
 
 import sys
 if sys.version_info > (3, 0):
-    basestring = (str, bytes)
+    str = (str, bytes)
 
 
 class Redirect(BaseNode):
 
     _allowedContentClass = (
-        basestring,
+        str,
     )
 
     def __init__(self, url, method=None):

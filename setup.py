@@ -23,7 +23,10 @@ setup(name="zang",
           'Topic :: Utilities'],
       description=('This Python pacakge is an open source tool built to '
                    'simplify interaction with the Zang telephony platform.'),
-      install_requires=['enum', 'requests', 'python-dateutil'],
+      install_requires=['requests', 'python-dateutil'],
+      extras_require={
+          ":python_version<'3.4'": ['enum'],
+      },
       keywords='zang api wrapper',
       license='MIT License',
       packages=find_packages(exclude=['tests', 'tests.*', 'docs']),
