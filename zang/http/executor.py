@@ -104,7 +104,7 @@ class Executor(object):
         if class_ is not Account:
             resource = ('Accounts', accountSid) + resource
 
-        args = list(map(str, resource))
+        args = map(str, resource)
         url = ('/'.join([baseUlr] + list(args))) + '.json'
         return url
 

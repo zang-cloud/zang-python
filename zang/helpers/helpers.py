@@ -131,13 +131,13 @@ def to_python(
                 d[private_name] = dict(in_dict.get(in_key))
 
     if object_map:
-        for (k, v) in list(object_map.items()):
+        for (k, v) in object_map.items():
             if in_dict.get(k):
                 private_name = '_' + k
                 d[private_name] = v.new_from_dict(in_dict.get(k))
 
     if array_map:
-        for (k, v) in list(array_map.items()):
+        for (k, v) in array_map.items():
             if in_dict.get(k):
                 private_name = '_' + k
                 d[private_name] = [v.new_from_dict(i) for i in in_dict.get(k)]
@@ -181,7 +181,7 @@ def to_api(in_dict, int_keys=None, date_keys=None, bool_keys=None):
                 del in_dict[in_key]
 
     # Remove all Nones
-    for k, v in list(in_dict.items()):
+    for k, v in in_dict.items():
         if v is None:
             del in_dict[k]
 
@@ -199,7 +199,7 @@ def flatDict(dict_):
     :rtype: dict
     """
     dict__ = {}
-    for key in list(dict_.keys()):
+    for key in dict_.keys():
         value = dict_[key]
         if value is not None:
             if isinstance(value, Enum):

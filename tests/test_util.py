@@ -1,6 +1,6 @@
 try:
     import http.server
-    import _thread
+    import thread
     from urllib.parse import parse_qs
     from urllib.parse import urlencode
 except ImportError:
@@ -116,7 +116,7 @@ class MockHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             dict0 = parse_qs(params0)
             dict1 = parse_qs(params1)
             for param in dict0:
-                if param not in list(dict0.keys()):
+                if param not in dict0.keys():
                     return False
                 val0 = dict1[param][0]
                 val1 = dict0[param][0]
@@ -143,7 +143,7 @@ class MockHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
             neadle = 'content-length'
 
         if (not hasattr(self, '_bodyParams') and
-                neadle in list(self.headers.keys())):
+                neadle in self.headers.keys()):
             if sys.version_info >= (3, 0):
                 contentLen = int(self.headers['Content-Length'])
             else:
@@ -170,7 +170,7 @@ class MockHTTPServer(http.server.HTTPServer):
     def __init__(self, expectation, *args, **kw):
         http.server.HTTPServer.__init__(self, *args, **kw)
         self.expectation = expectation
-        _thread.start_new_thread(self.handle_request, ())
+        thread.start_new_thread(self.handle_request, ())
 
 
 class TestUtil(object):

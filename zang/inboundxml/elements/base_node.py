@@ -26,7 +26,7 @@ class BaseNode(object):
         :rtype: dict
         """
         attributes_ = {}
-        for attribute in list(vars(self).keys()):
+        for attribute in vars(self).keys():
             value = vars(self)[attribute]
             if (value is not None and attribute != '_content' and
                     attribute != '_value'):
@@ -63,7 +63,7 @@ class BaseNode(object):
         :rtype: str
         """
         s = '<' + className
-        for attribute in list(attributes_.keys()):
+        for attribute in attributes_.keys():
             value = attributes_[attribute]
             if attribute == 'from_':
                 attribute = 'from'
