@@ -14,13 +14,13 @@ from zang.inboundxml.elements.sip import Sip
 
 import sys
 if sys.version_info > (3, 0):
-    basestring = (str, bytes)
+    str_classes = (str, bytes)
 
 
 class Dial(BaseNode):
 
     _allowedContentClass = (
-        basestring,
+        str,
         int,
         Number,
         Conference,

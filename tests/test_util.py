@@ -1,8 +1,8 @@
 try:
-    import BaseHTTPServer
+    import http.server
     import thread
-    from urlparse import parse_qs
-    from urllib import urlencode
+    from urllib.parse import parse_qs
+    from urllib.parse import urlencode
 except ImportError:
     import http.server as BaseHTTPServer
     import _thread as thread
@@ -60,7 +60,7 @@ class Expectation(object):
         return paramsUrlEncoded
 
 
-class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
+class MockHTTPRequestHandler(http.server.BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._process()
@@ -165,10 +165,10 @@ class MockHTTPRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         return None if len(url) != 2 else url[1]
 
 
-class MockHTTPServer(BaseHTTPServer.HTTPServer):
+class MockHTTPServer(http.server.HTTPServer):
 
     def __init__(self, expectation, *args, **kw):
-        BaseHTTPServer.HTTPServer.__init__(self, *args, **kw)
+        http.server.HTTPServer.__init__(self, *args, **kw)
         self.expectation = expectation
         thread.start_new_thread(self.handle_request, ())
 

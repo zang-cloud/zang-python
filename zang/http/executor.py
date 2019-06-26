@@ -17,9 +17,9 @@ from zang.exceptions.zang_exception import ZangException
 
 if sys.version_info >= (3, 0):
     from urllib.parse import urlencode
-    basestring = (str, bytes)
+    str_classes = (str, bytes)
 else:
-    from urllib import urlencode
+    from urllib.parse import urlencode
 
 
 class Executor(object):
@@ -114,7 +114,7 @@ class Executor(object):
         return self._newFromResponse(response, class_)
 
     def _setResource(self, resource, class_, data):
-        if not isinstance(data, basestring):
+        if not isinstance(data, str_classes):
             try:
                 data = urlencode(data)
             except Exception:

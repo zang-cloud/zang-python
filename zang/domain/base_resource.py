@@ -4,7 +4,7 @@ from zang.helpers.helpers import to_python
 from enum import Enum
 
 if sys.version_info > (3, 0):
-    basestring = (str, bytes)
+    str = (str, bytes)
 
 
 class BaseResource(object):
@@ -35,7 +35,7 @@ class BaseResource(object):
 
     def _sortedVarsNames(self):
         """Return sorted self variable names"""
-        keys = vars(self).keys()
+        keys = list(vars(self).keys())
         if sys.version_info >= (3, 0):
             keys = sorted(keys)
         else:
@@ -47,7 +47,7 @@ class BaseResource(object):
         valueStr = str(value)
         if not isinstance(
                 value,
-                (int, float, bool, basestring, datetime.datetime, Enum)):
+                (int, float, bool, str, datetime.datetime, Enum)):
             valueStr = '\n\t' + valueStr.replace('\n', '\n\t')
             if valueStr.count('\n') > 1:  # remove last \n\t
                 valueStr = valueStr[:-2]

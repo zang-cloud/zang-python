@@ -13,7 +13,7 @@ from dateutil.parser import parse as parse_datetime
 from zang.exceptions.zang_exception import ZangException
 
 if sys.version_info > (3, 0):
-    basestring = (str, bytes)
+    str_classes = (str, bytes)
 
 
 def is_collection(obj):
@@ -22,7 +22,7 @@ def is_collection(obj):
     col = getattr(obj, '__getitem__', False)
     val = False if (not col) else True
 
-    if isinstance(obj, basestring):
+    if isinstance(obj, str):
         val = False
 
     return val
@@ -101,7 +101,7 @@ def to_python(
             if in_dict.get(in_key) is not None:
                 private_name = '_' + in_key
                 value = in_dict.get(in_key)
-                if isinstance(value, basestring):
+                if isinstance(value, str_classes):
                     value = value.lower() == 'true'
                 d[private_name] = value
 
@@ -169,7 +169,7 @@ def to_api(in_dict, int_keys=None, date_keys=None, bool_keys=None):
 
                 _from = in_dict[in_key]
 
-                if isinstance(_from, basestring):
+                if isinstance(_from, str_classes):
                     dtime = parse_datetime(_from)
 
                 elif isinstance(_from, datetime):
