@@ -1,2 +1,2 @@
-sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-authToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+sid = 'AC777c3e32a60c146eab5346619534ff66'
+authToken = '196beefbc1554e7ea3b3089155f470d3'
