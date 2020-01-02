@@ -6,7 +6,7 @@ the `Zang <http://www.zang.io>`_ telephony platform. Zang makes adding voice
 and SMS to applications fun and easy.
 
 For more information about Zang, please visit: 
-`Zang Cloud <https://www.zang.io/products/cloud>`_
+`Avaya OneCloud™️ CPaaS  <https://www.zang.io/products/cloud>`
 
 To read the official documentation, please visit: `Zang Docs <http://docs.zang.io/aspx/docs>`_.
 

@@ -109,7 +109,7 @@ __all__ = [
 
 __title__ = 'zang'
 __author__ = 'Zang'
-__copyright__ = 'Copyright 2017 Zang'
+__copyright__ = 'Copyright 2020 Avaya Cloud Inc'
 __license__ = 'MIT'
 
 __version__ = '1.0.0'
