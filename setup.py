@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 
 setup(name="zang",
-      author='Zang Inc.',
+      author='Avaya Cloud Inc.',
       author_email='support@zang.io',
       classifiers=[
           'Development Status :: 4 - Beta',
@@ -22,7 +22,7 @@ setup(name="zang",
           'Programming Language :: Python :: 3.6',
           'Topic :: Utilities'],
       description=('This Python pacakge is an open source tool built to '
-                   'simplify interaction with the Zang telephony platform.'),
+                   'simplify interaction with the Avaya CPaaS telephony platform.'),
       install_requires=['enum', 'requests', 'python-dateutil'],
       keywords='zang api wrapper',
       license='MIT License',

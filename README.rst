@@ -2,13 +2,13 @@ zang-python
 ==========
 
 This python package is an open source tool built to simplify interaction with
-the `Zang <http://www.zang.io>`_ telephony platform. Zang makes adding voice
+the `Avaya CPaaS <http://www.zang.io>`_ telephony platform. Avaya CPaaS makes adding voice
 and SMS to applications fun and easy.
 
-For more information about Zang, please visit: 
+For more information about Avaya CPaaS, please visit:
 `Avaya OneCloud™️ CPaaS  <https://www.zang.io/products/cloud>`
 
-To read the official documentation, please visit: `Zang Docs <http://docs.zang.io/aspx/docs>`_.
+To read the official documentation, please visit: `Avaya CPaaS Docs <http://docs.zang.io/aspx/docs>`_.
 
 
 Installation
@@ -30,7 +30,7 @@ Usage
 REST
 ----
 
-See the `Zang REST API documentation <http://docs.zang.io/aspx/rest>`_
+See the `Avaya CPaaS REST API documentation <http://docs.zang.io/aspx/rest>`_
 for more information.
 
 Send SMS Example
@@ -52,7 +52,7 @@ Send SMS Example
     try:
         smsMessage = smsMessagesConnector.sendSmsMessage(
             to='(XXX) XXX-XXXX',
-            body='Hello from Zang!',
+            body='Hello from Avaya CPaaS!',
             from_='(XXX) XXX-XXXX')
         print(smsMessage)
     except ZangException as ze:
@@ -65,7 +65,7 @@ Configuration
 
 First a configuration object must be created by using ``Configuration`` class.
 
-Normally you'll want to just enter your Zang Platform Account ``sid``
+Normally you'll want to just enter your Avaya CPaaS Platform Account ``sid``
 and ``authToken``, but you can also define a base API URL.
 
 Next you'll have to create a connector by using ``ConnectorFactory``.
@@ -146,7 +146,7 @@ InboundXML
 ==========
 
 InboundXML is an XML dialect which enables you to control phone call flow.
-For more information please visit the `Zang InboundXML documentation
+For more information please visit the `Avaya CPaaS InboundXML documentation
 <http://docs.zang.io/aspx/inboundxml>`_.
 
 <Say> Example
@@ -159,7 +159,7 @@ For more information please visit the `Zang InboundXML documentation
     # enums
     from zang.inboundxml import Voice, Language
 
-    say = Say("Welcome to Zang!",
+    say = Say("Welcome to Avaya CPaaS!",
               language=Language.EN,
               voice=Voice.FEMALE,
               loop=3)
@@ -177,7 +177,7 @@ will render
     
     <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     <Response>
-        <Say loop="3" voice="female" language="en">Welcome to Zang!</Say>
+        <Say loop="3" voice="female" language="en">Welcome to Avaya CPaaS!</Say>
     </Response>
 
 .. code-block:: xml
