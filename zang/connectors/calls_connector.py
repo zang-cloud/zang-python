@@ -15,7 +15,7 @@ from zang.domain.list.calls import Calls
 class CallsConnector(BaseConnector):
     """
     Used for all forms of communication with the `Calls`
-    endpoint of the Zang REST API.
+    endpoint of the Avaya CPaaS REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
     """
 
@@ -192,13 +192,13 @@ class CallsConnector(BaseConnector):
             should be sent straight to the user's voicemail. Allowed positive
             values are "true" and "True" - any other value will default to
             "false".
-        :param ifMachine:  (optional)Specifies how Zang should handle this
+        :param ifMachine:  (optional)Specifies how Avaya CPaaS should handle this
             call if it goes to voicemail. Allowed values are "continue" to
             proceed as normal, "redirect" to redirect the call to the
             ifMachineUrl, or "hangup" to hang up the call. Hangup occurs when
             the tone is played. IfMachine accuracy is around 90% and may not
             work in all countries.
-        :param ifMachineUrl:  (optional)The URL Zang will redirect to for
+        :param ifMachineUrl:  (optional)The URL Avaya CPaaS will redirect to for
             instructions if a voicemail machine is detected while the
             IfMachine parameter is set to "redirect". Url length is
             limited to 200 characters.

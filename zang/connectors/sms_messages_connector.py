@@ -15,7 +15,7 @@ from zang.domain.list.sms_messages import SmsMessages
 class SmsMessagesConnector(BaseConnector):
     """
     Used for all forms of communication with the `SMS/Messages`
-    endpoint of the Zang REST API.
+    endpoint of the Avaya CPaaS REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
     """
 
@@ -24,7 +24,7 @@ class SmsMessagesConnector(BaseConnector):
 
     def viewSmsMessage(self, smsMessageSid):
         """
-        Text messages sent to and from Zang phone numbers are represented with.
+        Text messages sent to and from Avaya CPaaS phone numbers are represented with.
 
         :param smsMessageSid:
         :type smsMessageSid: str
@@ -46,7 +46,7 @@ class SmsMessagesConnector(BaseConnector):
             page=None,
             pageSize=None):
         """
-        Text messages sent to and from Zang phone numbers are represented with.
+        Text messages sent to and from Avaya CPaaS phone numbers are represented with.
 
         :param to: (optional) Lists all SMS messages sent to this number.
         :param from_: (optional) Lists all SMS messages sent from this number.
@@ -93,7 +93,7 @@ class SmsMessagesConnector(BaseConnector):
         :param to: Must be an SMS capable number. The value does not have
             to be in any specific format.
         :param body: Text of the SMS to be sent.
-        :param from_: Must be a Zang number associated with your account.
+        :param from_: Must be a Avaya CPaaS number associated with your account.
             The value does not have to be in any specific format.
         :param statusCallback: The URL that will be sent information about
             the SMS. Url length is limited to 200 characters.

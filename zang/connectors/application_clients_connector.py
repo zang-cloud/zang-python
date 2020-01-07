@@ -18,7 +18,7 @@ class ApplicationClientsConnector(BaseConnector):
 
     """
     Used for all forms of communication with the `Application Clients` endpoint
-        of the Zang REST API.
+        of the Avaya CPaaS REST API.
     .. seealso:: zang.connectors.connector_factory.ConnectorFactory
     """
 
