@@ -30,7 +30,14 @@ class BaseResource(object):
             value = vars(self)[varName]
             if value is not None:
                 valueStr = self._valueString(value)
-                s += varName[1:] + ': ' + valueStr + '\n'
+                if isinstance(valueStr, Enum):
+                    s += varName[1:] + ': ' + valueStr.name + '\n'
+                elif isinstance(valueStr, datetime.date):
+                    s += varName[1:] + ': ' + datetime.date.strftime(valueStr, '%m/%d/%Y %H:%M:%S') + '\n'
+                elif isinstance(valueStr, float):
+                    s += varName[1:] + ': ' + repr(valueStr) + '\n'
+                else:
+                    s += varName[1:] + ': ' + valueStr + '\n'
         return s
 
     def _sortedVarsNames(self):
@@ -44,10 +51,13 @@ class BaseResource(object):
 
     def _valueString(self, value):
         """If the value is not a primitive type, indent it's content"""
-        valueStr = str(value)
+        try:
+            valueStr = ''.join(value)
+        except:
+            valueStr = value
         if not isinstance(
-                value,
-                (int, float, bool, str, datetime.datetime, Enum)):
+                valueStr,
+                (int, float, bool, str, datetime.date, Enum)):
             valueStr = '\n\t' + valueStr.replace('\n', '\n\t')
             if valueStr.count('\n') > 1:  # remove last \n\t
                 valueStr = valueStr[:-2]
