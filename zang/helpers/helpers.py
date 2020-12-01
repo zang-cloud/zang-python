@@ -66,7 +66,7 @@ def to_python(
         for in_key in date_keys:
             private_name = '_' + in_key
             in_date = in_dict.get(in_key)
-            if in_date is not None:
+            if in_date:
                 try:
                     out_date = parse_datetime(in_date)
                 except TypeError as e:
