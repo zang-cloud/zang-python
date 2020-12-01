@@ -2,13 +2,13 @@ zang-python
 ==========
 
 This python package is an open source tool built to simplify interaction with
-the `Zang <http://www.zang.io>`_ telephony platform. Zang makes adding voice
+the `OneCloud CPaaS <https://cloud.avayacloud.com/products/cloud>`_ telephony platform. Onecloud CPaaS makes adding voice
 and SMS to applications fun and easy.
 
-For more information about Zang, please visit: 
-`Zang Cloud <https://www.zang.io/products/cloud>`_
+For more information about Onecloud CPaaS, please visit: 
+`OneCloud CPaaS <https://cloud.avayacloud.com/products/cloud>`_
 
-To read the official documentation, please visit: `Zang Docs <http://docs.zang.io/aspx/docs>`_.
+To read the official documentation, please visit: `OneCloud CPaaS Docs <http://docs.avayacloud.com/aspx/docs>`_.
 
 
 Installation
@@ -30,7 +30,7 @@ Usage
 REST
 ----
 
-See the `Zang REST API documentation <http://docs.zang.io/aspx/rest>`_
+See the `Onecloud CPaaS REST API documentation <http://docs.avayacloud.com/aspx/rest>`_
 for more information.
 
 Send SMS Example
@@ -43,7 +43,7 @@ Send SMS Example
 
     sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     authToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    url = 'http://api.zang.io/v2'
+    url = 'https://api.zang.io/v2'
 
     configuration = Configuration(sid, authToken, url=url)
     smsMessagesConnector = ConnectorFactory(configuration).smsMessagesConnector
@@ -51,9 +51,9 @@ Send SMS Example
     # send sms message
     try:
         smsMessage = smsMessagesConnector.sendSmsMessage(
-            to='(XXX) XXX-XXXX',
+            to='+e164 format number',
             body='Hello from Zang!',
-            from_='(XXX) XXX-XXXX')
+            from_='+e164 format number')
         print(smsMessage)
     except ZangException as ze:
         print(ze)
@@ -103,8 +103,8 @@ use ``parameterName=value`` in a method call e.g.:
 .. code-block:: python
 
     call = callsConnector.makeCall(
-        '+123456',
-        '+654321',
+        '+e164 format number',
+        '+e164 format number',
         'TestUrl',
         method=HttpMethod.GET,
         fallbackUrl='FallbackUrl')
@@ -132,7 +132,7 @@ Or a list of objects in which case the list is iterable, e.g.:
     usagesConnector = ConnectorFactory(configuration).usagesConnector
     usages = usagesConnector.listUsages(
         product=Product.ordinal(Product.OUTBOUND_CALL),
-        year=2017,
+        year=2021,
         month=2,
         pageSize=100)
     if usages and usages.elements:
@@ -146,8 +146,8 @@ InboundXML
 ==========
 
 InboundXML is an XML dialect which enables you to control phone call flow.
-For more information please visit the `Zang InboundXML documentation
-<http://docs.zang.io/aspx/inboundxml>`_.
+For more information please visit the `OneCloud CPaaS InboundXML documentation
+<http://docs.avayacloud.com/aspx/inboundxml>`_.
 
 <Say> Example
 -------------
@@ -159,7 +159,7 @@ For more information please visit the `Zang InboundXML documentation
     # enums
     from zang.inboundxml import Voice, Language
 
-    say = Say("Welcome to Zang!",
+    say = Say("Welcome to OneCloud CPaaS!",
               language=Language.EN,
               voice=Voice.FEMALE,
               loop=3)
