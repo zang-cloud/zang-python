@@ -22,7 +22,7 @@ from zang.inboundxml.elements.hangup import Hangup
 from zang.inboundxml.elements.say import Say
 from zang.inboundxml.elements.play import Play
 from zang.inboundxml.elements.gather import Gather
-
+from zang.inboundxml.elements.connect import Connect
 
 class Response(BaseNode):
 
@@ -41,6 +41,7 @@ class Response(BaseNode):
         Say,
         Play,
         Gather,
+        Connect,
     )
 
     def __init__(
