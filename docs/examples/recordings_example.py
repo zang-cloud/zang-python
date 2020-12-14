@@ -8,7 +8,7 @@ from zang.domain.enums.transcribe_quality import TranscribeQuality
 
 
 from docs.examples.credentials import sid, authToken
-url = 'http://api.zang.io/v2'
+url = 'https://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
 recordingsConnector = ConnectorFactory(configuration).recordingsConnector

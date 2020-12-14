@@ -2,13 +2,13 @@ zang-python
 ==========
 
 This python package is an open source tool built to simplify interaction with
-the `Zang <http://www.zang.io>`_ telephony platform. Zang makes adding voice
+the `Zang <https://www.zang.io>`_ telephony platform. Zang makes adding voice
 and SMS to applications fun and easy.
 
 For more information about Zang, please visit: 
 `Zang Cloud <https://www.zang.io/products/cloud>`_
 
-To read the official documentation, please visit: `Zang Docs <http://docs.zang.io/aspx/docs>`_.
+To read the official documentation, please visit: `Zang Docs <https://docs.zang.io/aspx/docs>`_.
 
 
 Installation
@@ -30,7 +30,7 @@ Usage
 REST
 ----
 
-See the `Zang REST API documentation <http://docs.zang.io/aspx/rest>`_
+See the `Zang REST API documentation <https://docs.zang.io/aspx/rest>`_
 for more information.
 
 Send SMS Example
@@ -43,7 +43,7 @@ Send SMS Example
 
     sid = 'ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     authToken = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    url = 'http://api.zang.io/v2'
+    url = 'https://api.zang.io/v2'
 
     configuration = Configuration(sid, authToken, url=url)
     smsMessagesConnector = ConnectorFactory(configuration).smsMessagesConnector
@@ -147,7 +147,7 @@ InboundXML
 
 InboundXML is an XML dialect which enables you to control phone call flow.
 For more information please visit the `Zang InboundXML documentation
-<http://docs.zang.io/aspx/inboundxml>`_.
+<https://docs.zang.io/aspx/inboundxml>`_.
 
 <Say> Example
 -------------
