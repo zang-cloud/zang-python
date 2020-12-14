@@ -113,6 +113,7 @@ def to_python(
             if (in_dict is not None) and (in_dict.get(in_key) is not None):
                 private_name = '_' + in_key
                 dictValue = in_dict.get(in_key)
+                # code below smells, need to clean it up
                 try:
                     value = class_(dictValue)
                 except Exception as e:
