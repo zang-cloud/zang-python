@@ -5,7 +5,7 @@ from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
 from docs.examples.credentials import sid, authToken
-url = 'http://api.zang.io/v2'
+url = 'https://api.zang.io/v2'
 
 
 configuration = Configuration(sid, authToken, url=url)
@@ -17,14 +17,17 @@ try:
         to='(XXX) XXX-XXXX',
         body='Hello from Zang!',
         from_='(XXX) XXX-XXXX')
-    print(smsMessage)
+    view = vars(smsMessage)
+    print('\n')
+    for item in view:
+        print (item , ' : ' , view[item])
 except ZangException as e:
     print(e)
 
 
 # view sms message
 try:
-    smsMessage = smsMessagesConnector.viewSmsMessage('SmsMessageSID')
+    smsMessage = smsMessagesConnector.viewSmsMessage(smsMessage.sid)
     print(smsMessage.status)
 except ZangException as e:
     print(e)
@@ -33,7 +36,7 @@ except ZangException as e:
 # list sms messages
 try:
     smsMessages = smsMessagesConnector.listSmsMessages(
-        dateSentGte=date(2016, 12, 31), dateSentLt=date(2017, 12, 31))
+        dateSentGte=date(2019, 12, 31), dateSentLt=date(2020, 12, 31))
     print(smsMessages.total)
     for smsMessage in smsMessages.elements:
         print(smsMessage.sid, smsMessage.dateSent)
