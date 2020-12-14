@@ -18,4 +18,7 @@ class CallStatus(Enum):
     PRE_QUEUED = 'pre-queued'
     QUEUED = 'queued'
     RINGING = 'ringing'
+    REJECTED = 'rejected'
+    NO_BALANCE = 'no-balance'
+    STRAIGHT_TO_VM = 'straight-to-vm'
     UNKNOWN = 'unknown'
