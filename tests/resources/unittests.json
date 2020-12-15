@@ -730,7 +730,7 @@
       "bodyParams": [
         {
           "name": "AudioUrl",
-          "value": "http://mydomain.com/audio.mp3"
+          "value": "https://mydomain.com/audio.mp3"
         }
       ],
       "queryParams": null,

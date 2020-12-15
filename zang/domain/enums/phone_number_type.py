@@ -11,4 +11,6 @@ from enum import Enum
 class PhoneNumberType(Enum):
     LOCAL = 'local'
     INTERNATIONAL = 'international'
-    TOLL_FREE = 'toll-free'
+    TOLL_FREE = 'tollfree'
+    PORTED = 'ported'
+    CUSTOMER_PORTED = 'customer ported'

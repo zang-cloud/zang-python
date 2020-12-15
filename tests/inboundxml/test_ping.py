@@ -6,7 +6,7 @@ from zang.inboundxml.elements.base_node import BaseNode
 class TestPing(unittest.TestCase):
 
     def setUp(self):
-        self.url = 'http://zang.io'
+        self.url = 'https://zang.io'
 
     def test_init_with_required_values(self):
         expected = '<Ping>' + self.url + '</Ping>'
@@ -24,7 +24,7 @@ class TestPing(unittest.TestCase):
     def test_with_update_attributes(self):
         """test updating url and attributes"""
         ping = Ping(self.url)
-        newUlr = 'http://bar'
+        newUlr = 'https://bar'
         ping.url = newUlr
         ping.method = 'GET'
         expected = '<Ping method="GET">' + newUlr + '</Ping>'

@@ -13,7 +13,7 @@
   "friendly_name": "MyDomain2",
   "domain_name": "mytestdomain.com",
   "account_sid": "ACe1889084056167d57a944486a50ceb46",
-  "voice_url": "http://telapi.com/ivr/welcome/call",
+  "voice_url": "https://telapi.com/ivr/welcome/call",
   "voice_heartbeat_callback_method": "POST",
   "sid": "SD7c88908470f591b05ec943e08157d65d",
   "date_created": "Fri, 24 Mar 2017 14:02:05 -0000",

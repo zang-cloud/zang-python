@@ -12,8 +12,8 @@
   "call_sid": null,
   "sid": "NO42889084d1ec1bddec4541a9975a52ba",
   "date_created": "Fri, 24 Mar 2017 14:01:53 -0000",
-  "request_url": "http://inflight.prd.telapi.net:81/v2/Accounts/ACe1889084056167d57a944486a50ceb46/SIP/Domains/SD42889084a0c23b31cff24205b55aed06/CredentialListMappings.json",
+  "request_url": "https://inflight.prd.telapi.net:81/v2/Accounts/ACe1889084056167d57a944486a50ceb46/SIP/Domains/SD42889084a0c23b31cff24205b55aed06/CredentialListMappings.json",
   "error_code": 21227,
   "api_version": "v2",
-  "more_info": "http://telapi.com/docs/api/rest/overview/errors/21227"
+  "more_info": "https://telapi.com/docs/api/rest/overview/errors/21227"
 }

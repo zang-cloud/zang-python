@@ -19,7 +19,7 @@ class TestIncomingPhoneNumbers(unittest.TestCase):
         TestUtil.start('IncomingPhoneNumbersTest', 'viewIncomingPhoneNumber')
         obj = self.connector.viewIncomingPhoneNumber(
             'TestIncomingPhoneNumberSid')
-        assert 'http://www.zang.io/ivr/welcome/sms' == obj.smsUrl
+        assert 'https://www.zang.io/ivr/welcome/sms' == obj.smsUrl
 
     def test_list_incoming_phone_numbers(self):
         TestUtil.start('IncomingPhoneNumbersTest', 'listIncomingPhoneNumbers')

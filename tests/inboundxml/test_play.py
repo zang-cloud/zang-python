@@ -23,7 +23,7 @@ class TestPlay(unittest.TestCase):
 
     def test_with_update_attributes(self):
         play = Play(self.play)
-        newPlay = 'http://tone.url'
+        newPlay = 'https://tone.url'
         play.url = newPlay
         play.loop = '100'
         expected = '<Play loop="100">%s</Play>' % newPlay

@@ -6,7 +6,7 @@ from zang.connectors.connector_factory import ConnectorFactory
 from zang.domain.enums.conference_status import ConferenceStatus
 
 from docs.examples.credentials import sid, authToken
-url = 'http://api.zang.io/v2'
+url = 'https://api.zang.io/v2'
 
 configuration = Configuration(sid, authToken, url=url)
 conferencesConnector = ConnectorFactory(configuration).conferencesConnector
@@ -67,7 +67,7 @@ except ZangException as ze:
 try:
     participant = conferencesConnector.playAudioToParticipant(
         'TestConferenceSid', 'TestParticipantSid',
-        'http://mydomain.com/audio.mp3')
+        'https://mydomain.com/audio.mp3')
     print(participant.duration)
 except ZangException as ze:
     print(ze)

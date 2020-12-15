@@ -7,7 +7,7 @@ from zang.domain.enums.http_method import HttpMethod
 class TestRedirect(unittest.TestCase):
 
     def setUp(self):
-        self.url = 'http://zang.io'
+        self.url = 'https://zang.io'
 
     def test_init_with_required_values(self):
         expected = '<Redirect>' + self.url + '</Redirect>'
@@ -25,7 +25,7 @@ class TestRedirect(unittest.TestCase):
 
     def test_with_update_attributes(self):
         redirect = Redirect(self.url)
-        newUrl = 'http://tone.url'
+        newUrl = 'https://tone.url'
         method = HttpMethod.GET
         redirect.url = newUrl
         redirect.method = method

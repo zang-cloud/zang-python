@@ -55,6 +55,6 @@ class TestRecordings(unittest.TestCase):
     def checkRecording(self, recording):
         assert (
             recording.recordingUrl ==
-            ('http://recordings.telapi.com/' +
+            ('https://recordings.telapi.com/' +
                 'RBfcc94a3e2b5d4e4c89f7017d6387ffb8' +
                 '/RE4288908463cd614b41084509ad8893a7.mp3'))
