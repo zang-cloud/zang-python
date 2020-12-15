@@ -15,11 +15,14 @@ mmsMessagesConnector = ConnectorFactory(configuration).mmsMessagesConnector
 try:
     mmsMessage = mmsMessagesConnector.sendMmsMessage(
         to='(XXX) XXX-XXXX',
-        mediaUrl="https://media.giphy.com/media/zZJzLrxmx5ZFS/giphy.gif",
+        mediaUrl="https://gph.is/g/4DedxMn",
         body='This is MMS sent from Zang',
         from_='(XXX) XXX-XXXX',
         statusCallback='callback.url')
-    print(mmsMessage)
+    view = vars(mmsMessage)
+    print('\n')
+    for item in view:
+        print (item , ' : ' , view[item])
 except ZangException as e:
     print("in exception")
     print(e)
