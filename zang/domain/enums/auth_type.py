@@ -9,7 +9,7 @@ from enum import Enum
 
 
 class AuthType(Enum):
-    IP_ACL = 'IP_ACL'
-    CREDENTIAL_LIST = 'CREDENTIAL_LIST'
+    IP_ACL = 'ip_acl'
+    CREDENTIAL_LIST = 'credential_list'
     NO_TRAFFIC = 'no_traffic'
     IP_AND_CREDENTIAL = 'ip_and_credential'
