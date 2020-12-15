@@ -13,4 +13,6 @@ class AnsweredBy(Enum):
     MACHINE = 'machine'
     TBD = 'tbd'
     NOBODY = 'nobody'
+    API = 'telapi'
+    TRUNK = 'trunk'
     UNKNOWN = 'unknown'
