@@ -13,3 +13,5 @@ class MmsMessageStatus(Enum):
     SENDING = 'sending'
     QUEUED = 'queued'
     FAILED = 'failed'
+    RECEIVED = 'received'
+    DELETED = 'deleted'

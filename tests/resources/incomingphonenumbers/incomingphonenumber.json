@@ -1,6 +1,6 @@
 {
   "date_updated": "Fri, 24 Feb 2017 17:57:26 -0000",
-  "voice_url": "http://www.zang.io/ivr/welcome/call",
+  "voice_url": "https://www.zang.io/ivr/welcome/call",
   "voice_fallback_method": "POST",
   "capabilities": {
     "voice": "true",
@@ -15,7 +15,7 @@
   "hangup_callback": "",
   "hangup_callback_method": "POST",
   "heartbeat_url": "",
-  "sms_url": "http://www.zang.io/ivr/welcome/sms",
+  "sms_url": "https://www.zang.io/ivr/welcome/sms",
   "voice_method": "POST",
   "voice_caller_id_lookup": "false",
   "friendly_name": "(989) 494-5633",

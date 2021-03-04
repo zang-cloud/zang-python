@@ -35,7 +35,7 @@ class TestConferences(unittest.TestCase):
         TestUtil.start('ConferencesTest', 'playAudioToParticipant')
         participant = self.connector.playAudioToParticipant(
             'TestConferenceSid', 'TestParticipantSid',
-            'http://mydomain.com/audio.mp3')
+            'https://mydomain.com/audio.mp3')
         self.checkParticipant(participant)
 
     def test_hangup_participant(self):

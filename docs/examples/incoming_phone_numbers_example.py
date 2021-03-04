@@ -4,7 +4,7 @@ from zang.configuration.configuration import Configuration
 from zang.connectors.connector_factory import ConnectorFactory
 
 from docs.examples.credentials import sid, authToken
-url = 'http://api.zang.io/v2'
+url = 'https://api.zang.io/v2'
 
 
 configuration = Configuration(sid, authToken, url=url)

@@ -69,8 +69,9 @@ def to_python(
             if in_date is not None:
                 try:
                     out_date = parse_datetime(in_date)
-                except TypeError as e:
-                    raise ZangException(e)
+                except Exception as e:
+                    # if there is no date we fallback to None, exception is not required here
+                    ##raise ZangException(e)
                     out_date = None
                 d[private_name] = out_date
             else:
@@ -113,6 +114,7 @@ def to_python(
             if (in_dict is not None) and (in_dict.get(in_key) is not None):
                 private_name = '_' + in_key
                 dictValue = in_dict.get(in_key)
+                # code below smells, need to clean it up
                 try:
                     value = class_(dictValue)
                 except Exception as e:

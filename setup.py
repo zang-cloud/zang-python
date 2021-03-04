@@ -30,6 +30,6 @@ setup(name="zang",
       keywords='zang api wrapper',
       license='MIT License',
       packages=find_packages(exclude=['tests', 'tests.*', 'docs']),
-      url='http://docs.zang.io',
+      url='https://docs.zang.io',
       test_suite='tests',
       version="1.0.0")

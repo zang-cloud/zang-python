@@ -17,7 +17,7 @@ SID = 'TestAccountSid'
 AUTH_TOKEN = 'TestToken'
 
 PORT_NUMBER = 41123
-URL = 'http://localhost:' + str(PORT_NUMBER)
+URL = 'https://localhost:' + str(PORT_NUMBER)
 
 RESOURCES_PATH = os.path.abspath(os.path.join(
     os.path.dirname(__file__), 'resources')
