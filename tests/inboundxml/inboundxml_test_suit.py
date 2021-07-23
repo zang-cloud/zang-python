@@ -14,6 +14,7 @@ from tests.inboundxml.test_mms import TestMms
 from tests.inboundxml.test_sms import TestSms
 from tests.inboundxml.test_record import TestRecord
 from tests.inboundxml.test_gather import TestGather
+from tests.inboundxml.test_connect import TestConnect
 from tests.inboundxml.test_dial import TestDial
 from tests.inboundxml.test_response import TestResponse
 
@@ -40,6 +41,7 @@ def suite():
     test_suite.addTest(unittest.makeSuite(TestPing))
     test_suite.addTest(unittest.makeSuite(TestSip))
     test_suite.addTest(unittest.makeSuite(TestNumber))
+    test_suite.addTest(unittest.makeSuite(TestConnect))
     return test_suite
 
 

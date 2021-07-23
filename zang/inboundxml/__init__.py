@@ -4,12 +4,14 @@ from .elements.answer import Answer  # NOQA
 from .elements.conference import Conference  # NOQA
 from .elements.dial import Dial  # NOQA
 from .elements.gather import Gather  # NOQA
+from .elements.connect import Connect  # NOQA
 from .elements.hangup import Hangup  # NOQA
 from .elements.mms import Mms  # NOQA
 from .elements.number import Number  # NOQA
 from .elements.pause import Pause  # NOQA
 from .elements.ping import Ping  # NOQA
 from .elements.play import Play  # NOQA
+from .elements.agent import Agent  # NOQA
 from .elements.play_last_recording import PlayLastRecording  # NOQA
 from .elements.record import Record  # NOQA
 from .elements.redirect import Redirect  # NOQA
@@ -33,6 +35,7 @@ __all__ = [
     'Conference',
     'Dial',
     'Gather',
+    'Connect',
     'Hangup',
     'Mms',
     'Number',
@@ -45,6 +48,7 @@ __all__ = [
     'Reject',
     'Response',
     'Say',
+    'Agent',
     'Sip',
     'Sms',
     'User',

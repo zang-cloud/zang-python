@@ -30,4 +30,4 @@ class TestMmsMessages(unittest.TestCase):
     def checkMessage(self, mmsMessage):
         assert mmsMessage.body == 'This is MMS sent from Zang'
         assert mmsMessage.status == MmsMessageStatus.QUEUED
-        assert mmsMessage.direction == MmsDirection.OUTBOUND_API
+        assert mmsMessage.direction == MmsDirection.OUTBOUND
