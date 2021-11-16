@@ -68,6 +68,29 @@ First a configuration object must be created by using ``Configuration`` class.
 Normally you'll want to just enter your Zang Platform Account ``sid``
 and ``authToken``, but you can also define a base API URL.
 
+Base API URL is defined in constants.py with following defaults:
+
+.. code-block:: python
+
+    BASE_URL = 'https://api.zang.io'
+    API_VERSION = 'v2'
+
+.. code-block:: python
+
+The base API URL and api version for US(new) and EU deployments are:
+US: https://api-us.cpaas.avayacloud.com/v2
+EU: https://api-eu.cpaas.avayacloud.com/v2
+
+These values can be changed in constants.py. For example, if we need
+to run our code snippet in EU deployment, code has to be changed as below:
+
+.. code-block:: python
+
+    BASE_URL = 'https://api-eu.cpaas.avayacloud.com'
+    API_VERSION = 'v2'
+
+.. code-block:: python
+
 Next you'll have to create a connector by using ``ConnectorFactory``.
 This can be done in multiple ways. The usual way is to instantiate
 ``ConnectorFactory``, pass the configuration object to the factory and have
