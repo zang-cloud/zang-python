@@ -3,6 +3,7 @@
 from .elements.answer import Answer  # NOQA
 from .elements.conference import Conference  # NOQA
 from .elements.dial import Dial  # NOQA
+from .elements.refer import Refer  # NOQA
 from .elements.gather import Gather  # NOQA
 from .elements.connect import Connect  # NOQA
 from .elements.hangup import Hangup  # NOQA
@@ -34,6 +35,7 @@ __all__ = [
     'Answer',
     'Conference',
     'Dial',
+    'Refer',
     'Gather',
     'Connect',
     'Hangup',
