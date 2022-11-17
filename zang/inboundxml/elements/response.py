@@ -18,6 +18,7 @@ from zang.inboundxml.elements.mms import Mms
 from zang.inboundxml.elements.play_last_recording import PlayLastRecording
 from zang.inboundxml.elements.reject import Reject
 from zang.inboundxml.elements.dial import Dial
+from zang.inboundxml.elements.refer import Refer
 from zang.inboundxml.elements.hangup import Hangup
 from zang.inboundxml.elements.say import Say
 from zang.inboundxml.elements.play import Play
@@ -37,6 +38,7 @@ class Response(BaseNode):
         PlayLastRecording,
         Reject,
         Dial,
+        Refer,
         Hangup,
         Say,
         Play,

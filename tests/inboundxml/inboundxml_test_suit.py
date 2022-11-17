@@ -3,6 +3,7 @@ from tests.inboundxml.test_conference import TestConference
 from tests.inboundxml.test_hangup import TestHangup
 from tests.inboundxml.test_pause import TestPause
 from tests.inboundxml.test_ping import TestPing
+from tests.inboundxml.test_refer import TestRefer
 from tests.inboundxml.test_sip import TestSip
 from tests.inboundxml.test_number import TestNumber
 from tests.inboundxml.test_reject import TestReject
@@ -26,6 +27,7 @@ def suite():
     test_suite = unittest.TestSuite()
     test_suite.addTest(unittest.makeSuite(TestResponse))
     test_suite.addTest(unittest.makeSuite(TestDial))
+    test_suite.addTest(unittest.makeSuite(TestRefer))
     test_suite.addTest(unittest.makeSuite(TestGather))
     test_suite.addTest(unittest.makeSuite(TestSms))
     test_suite.addTest(unittest.makeSuite(TestMms))
